@@ -1,0 +1,20 @@
+li {
+    font-size:20px;
+    color: white;
+}
+
+li * {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+textarea {
+    height: 300px;
+    width: 400px;
+}
