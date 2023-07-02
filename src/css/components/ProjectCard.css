@@ -11,6 +11,5 @@
   margin: 15px;
   max-width: 50%;
   max-height: 100%;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 0 10px 10px rgba(128, 128, 128, .6);
+  color: white;
 }

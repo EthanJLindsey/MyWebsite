@@ -13,8 +13,8 @@ export default function ProjectCard({
 			className='project-card'
 			style={{ backgroundImage: `url(${image})` }}>
 			<div>
-				{title && <h1 style={{ color: color }}>{title}</h1>}
-				{description && <p style={{ color: color }}>{description}</p>}
+				{title && <h1>{title}</h1>}
+				{description && <p>{description}</p>}
 				{link && <Link to={link}>Click here to view</Link>}
 			</div>
 		</div>
