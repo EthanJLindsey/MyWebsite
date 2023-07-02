@@ -1,35 +1,36 @@
-@keyframes ripple {
-    0% {
-        background-color:white;
-    }
-    100% {
-        background-color: rgb(212, 208, 239);
-    }
-}
-
 .navbar {
-    width: 100%;
-    display: block;
+	flex: 0;
+	width: 100%;
+  background-color: white;
+  height: 42px;
 }
 
 .navbar * {
-    float: right;
-    text-decoration: none;
-    color: black;
-    margin: 5px;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 10px;
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 10px;
+	float: left;
 }
 
-
-.navbar *:hover {
-    background-color: rgb(212, 208, 239);
-    animation-name: ripple;
-    animation-duration: 1s;
+.nav-items {
+	float: right;
 }
 
-.navbar .title {
-    float:left;
-    font-size:20px;
+@media (max-width: 700px) {
+	.navbar {
+		display: flex;
+		flex-direction: column;
+	}
+	.nav-items {
+		display: flex;
+		flex-direction: column;
+		background-color: rgb(231, 231, 231);
+		margin: 0;
+		padding: 0;
+		width: 100%;
+    overflow: hidden;
+    transition: height .2s;
+	}
 }

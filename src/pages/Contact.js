@@ -6,35 +6,40 @@ function f() {
 
 export default function Contact() {
   return (
-    <div style={{ width: "80%", justifyContent: "center", alignItems:'center', display: "flex" }}>
-      <div>
+    <section>
+      <div className="link-div">
         <h1>Contact Me</h1>
-          <ul style={{ padding: "20px" }}>
-            <li>
-              Email&nbsp;
-              <a href="mailto: ethan.james.lindsey@gmail.com">
-                ethan.james.lindsey@gmail.com
-              </a>
-            </li>
-            <li>
-              LinkedIn&nbsp;
-              <a href="https://www.linkedin.com/in/ejlindseycs/">ejlindseycs</a>
-            </li>
-            <li>
-              GitHub&nbsp;
-              <a href="https://github.com/EthanJLindsey">EthanJLindsey</a>
-            </li>
-          </ul>
+        <ul>
+          <li>
+            Email&nbsp;
+            <a href="mailto: ethan.james.lindsey@gmail.com">
+              ethan.james.lindsey@gmail.com
+            </a>
+          </li>
+          <li>
+            LinkedIn&nbsp;
+            <a href="https://www.linkedin.com/in/ejlindseycs/">ejlindseycs</a>
+          </li>
+          <li>
+            GitHub&nbsp;
+            <a href="https://github.com/EthanJLindsey">EthanJLindsey</a>
+          </li>
+        </ul>
       </div>
-      <div style={{ padding: "20px" }}>
-        <h1 style={{textAlign:'left','lineHeight':1}}>Have questions or want to share comments with me?</h1>
-        <p style={{textAlign:'left','marginTop':0}}>
-          You can email me or send me a message LinkedIn. Alternatively, you can
-          also sent me direct feedback using the textbox below.
+      <div className="feedback-div">
+        <h1>
+          Have questions or want
+          to share comments with me?
+        </h1>
+        <p>
+          You can email me or send me a message on LinkedIn! Alternatively, you
+          can also sent me direct feedback using the textbox below.
         </p>
-        <textarea></textarea>
-        <button onClick={f}>Submit</button>
+        <textarea rows="5"></textarea>
+        <button onClick={f} className="submit-button">
+          Submit
+        </button>
       </div>
-    </div>
+    </section>
   );
 }

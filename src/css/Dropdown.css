@@ -1,0 +1,18 @@
+.dropdown, .dropdown-open {
+  transition: height 1s ease;
+  padding: 0;
+  margin: 0;
+  height: 95px;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 40px;
+}
+
+.dropdown-open >* {
+  height: 100%;
+}
+
+.dropdown >* {
+  height: 0;
+}
