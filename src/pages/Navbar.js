@@ -46,8 +46,10 @@ export default function Navbar() {
 				</Link>
 			</div>
 			{/* Right side items */}
-			{vis ? (
-				<Dropdown open={open}>
+			{
+				<Dropdown
+					active={vis}
+					open={open}>
 					<div className='nav-items'>
 						{items.map((item, index) => {
 							return (
@@ -60,19 +62,7 @@ export default function Navbar() {
 						})}
 					</div>
 				</Dropdown>
-			) : (
-				<div className='nav-items'>
-					{items.map((item, index) => {
-						return (
-							<Link
-								to={item.url}
-								key={index}>
-								{item.title}
-							</Link>
-						);
-					})}
-				</div>
-			)}
+			}
 		</nav>
 	);
 }

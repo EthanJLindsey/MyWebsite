@@ -1,0 +1,16 @@
+.project-card {
+  background-size:cover;
+  margin: 3px;
+  align-items: flex-end;
+  justify-content: right;
+  display: flex;
+  flex: auto;
+}
+
+.project-card >* {
+  margin: 15px;
+  max-width: 50%;
+  max-height: 100%;
+  background-color: rgba(128, 128, 128, .6);
+  box-shadow: 0 0 10px 10px rgba(128, 128, 128, .6);
+}
