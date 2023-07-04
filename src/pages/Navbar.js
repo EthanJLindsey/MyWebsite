@@ -5,21 +5,6 @@ import '../css/Navbar.css';
 import DrawerButton from '../components/DrawerButton';
 import Dropdown from '../components/Dropdown';
 
-const items = [
-	{
-		title: 'Contact Me',
-		url: '/contact',
-	},
-	{
-		title: 'Resume',
-		url: '/resume',
-	},
-	{
-		title: 'Projects',
-		url: '/projects',
-	},
-];
-
 export default function Navbar() {
 	const [vis, setVis] = useState(
 		window.matchMedia('(max-width: 700px)').matches
@@ -51,15 +36,14 @@ export default function Navbar() {
 					active={vis}
 					open={open}>
 					<div className='nav-items'>
-						{items.map((item, index) => {
-							return (
-								<Link
-									to={item.url}
-									key={index}>
-									{item.title}
-								</Link>
-							);
-						})}
+						<Link to='/projects'>Projects</Link>
+						<a
+							href='Resume.pdf'
+							rel='noopener noreferrer'
+							target='_blank'>
+							Resume
+						</a>
+						<Link to='/contact'>Contact Me</Link>
 					</div>
 				</Dropdown>
 			}
