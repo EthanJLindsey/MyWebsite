@@ -5,9 +5,9 @@ export default function DrawerButton({ active, onClick }) {
 		<div
 			className={active ? 'drawer-button-active' : 'drawer-button'}
 			onClick={() => onClick()}>
-			<div className='bar1'></div>
-			<div className='bar2'></div>
-			<div className='bar3'></div>
+			<div className='bar1'/>
+			<div className='bar2'/>
+			<div className='bar3'/>
 		</div>
 	);
 }

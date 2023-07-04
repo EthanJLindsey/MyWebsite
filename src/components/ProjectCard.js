@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import '../css/components/ProjectCard.css';
+import CloseButton from './CloseButton';
 
 function f(tag) {
 	console.log(`${tag} clicked.`);
@@ -21,24 +22,26 @@ export default function ProjectCard({
 			ref={ref}
 			className={'project-card' + (expanded ? '-expanded' : '')}
 			onClick={() => {
+				if (expanded) return;
 				onClick();
-				if (!expanded) {
-					setTimeout(
-						() =>
-							ref.current.scrollIntoView({
-								behavior: 'smooth',
-								block: 'center',
-							}),
-						400
-					);
-				}
+				setTimeout(
+					() =>
+						ref.current.scrollIntoView({
+							behavior: 'smooth',
+							block: 'center',
+						}),
+					140
+				);
 			}}>
 			<div
 				className='project-background'
 				style={{ backgroundImage: `url(${image})` }}
 			/>
 			<div className='project-content'>
-				{title && <h1>{title}</h1>}
+				<header>
+					<CloseButton onClick={onClick}/>
+					{title && <h1>{title}</h1>}
+				</header>
 				{description && <p>{description}</p>}
 				<div className='tags'>
 					{tags &&
