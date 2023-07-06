@@ -1,0 +1,37 @@
+.navbar {
+	z-index: 2;
+	flex: 0;
+	width: 100%;
+  background-color: white;
+  height: 42px;
+}
+
+.navbar * {
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 10px;
+	float: left;
+}
+
+.nav-items {
+	float: right;
+}
+
+@media (max-width: 700px) {
+	.navbar {
+		display: flex;
+		flex-direction: column;
+	}
+	.nav-items {
+		display: flex;
+		flex-direction: column;
+		background-color: rgb(231, 231, 231);
+		margin: 0;
+		padding: 0;
+		width: 100%;
+    overflow: hidden;
+    transition: height .2s;
+	}
+}

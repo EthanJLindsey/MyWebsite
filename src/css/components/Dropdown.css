@@ -1,0 +1,21 @@
+* {
+  transition: height 200ms linear;
+}
+
+.dropdown,
+.dropdown-open {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	overflow: hidden;
+	position: fixed;
+	top: 40px;
+}
+
+.dropdown {
+	height: 0;
+}
+
+.dropdown-open {
+	height: 95px;
+}
