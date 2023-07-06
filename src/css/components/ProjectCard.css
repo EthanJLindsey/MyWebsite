@@ -90,10 +90,12 @@
 
 .project-card .project-content:hover h1 {
 	transform: translate(-5px, 5px);
+	color: rgb(99, 196, 245);
 	transition: 200ms;
 }
 .project-card .project-content:hover .tags {
 	transform: translate(-5px, -5px);
+	color: rgb(99, 196, 245);
 	transition: 200ms;
 }
 

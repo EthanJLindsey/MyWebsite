@@ -14,23 +14,5 @@
 			"tags": ["Kotlin","Javascript","Spring Boot", "MySQL", "Website", "Personal Project"],
 		"image":
 			"/projects/webadventure-example.png"
-	},
-	{
-		"title": "MyProject",
-		"description":
-			"l fj ;las jf;lasd jf;as f;asjkl df;jasl kdf;sajldkf ;las fj;sda flkasj f;kasd ;flas;dkfaj;dlkfj a;sdkfj; asdkfjas; dkfjas ;dfjkas;d lfkja;l",
-		"image":
-			"https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_16x9.jpg?w=1200"
-	},
-	{
-		"title": "MyProject",
-		"description": "this is my project",
-		"image":
-			"https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_16x9.jpg?w=1200"
-	},
-	{
-		"title": "MyProject",
-		"description": "this is my project",
-		"image":
-			"https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_16x9.jpg?w=1200"
-	}]
+	}
+	]

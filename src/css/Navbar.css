@@ -2,22 +2,28 @@
 	z-index: 2;
 	flex: 0;
 	width: 100%;
-  background-color: white;
   height: 42px;
 }
 
 .navbar * {
 	text-decoration: none;
-	color: black;
 	padding: 5px;
 	font-size: 16px;
-	border-radius: 10px;
 	float: left;
+	color: inherit;
 }
 
 .nav-items {
 	float: right;
 }
+.nav-items * {
+	transition: 200ms;
+}
+.nav-items *:hover {
+	transform: translate(0,-2px);
+	color: rgb(99, 196, 245);
+}
+
 
 @media (max-width: 700px) {
 	.navbar {
@@ -27,7 +33,6 @@
 	.nav-items {
 		display: flex;
 		flex-direction: column;
-		background-color: rgb(231, 231, 231);
 		margin: 0;
 		padding: 0;
 		width: 100%;

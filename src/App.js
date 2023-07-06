@@ -1,10 +1,10 @@
-import '../css/App.css';
+import './css/App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import Navbar from './Navbar';
-import Projects from './Projects';
-import Contact from './Contact';
-import Home from './Home';
+import Navbar from './pages/Navbar';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
 
 export default function App() {
 	return (
@@ -24,7 +24,6 @@ export default function App() {
 					element={<Contact />}
 				/>
 			</Routes>
-			<div style={{height:'300px'}}/>
 		</div>
 	);
 }

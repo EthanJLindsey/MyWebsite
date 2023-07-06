@@ -1,0 +1,68 @@
+.home-content {
+	width: 100%;
+}
+
+.home-content * {
+	transition: 200ms;
+}
+
+.introduction {
+	display: flex;
+	padding: 20px;
+	height: 400px;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.intro-text {
+	text-align: left;
+}
+.intro-text * {
+	width: fit-content;
+	cursor:default;
+}
+
+.intro-text h2:hover {
+	transform: translate(0,-2px);
+	color: rgb(99, 196, 245);
+}
+
+.icons {
+	width: fit-content;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+  padding: 0;
+  margin: 10px;
+}
+
+.icons li {
+	list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+	transition: 200ms;
+}
+.icons li:hover {
+	transform: translate(0,-2px);
+	fill: rgb(99, 196, 245);
+}
+.icons .linkedin-icon:hover a svg path {
+	fill: #0a66c2
+}
+.icons .github-icon:hover a svg path {
+	fill: #000000
+}
+.icons .mail-icon:hover a svg path {
+	fill: #b8b8b8
+}
+
+
+
+.icons li a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.icons li a svg path {
+	fill: white;
+}

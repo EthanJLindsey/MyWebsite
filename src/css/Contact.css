@@ -1,9 +1,9 @@
-section {
+.contact {
   flex: 1;
   display: flex;
   width: 100%;
 }
-section > * {
+.contact > * {
   flex: 1;
   padding: 20px;
 }
@@ -60,7 +60,7 @@ section > * {
   margin: 10px;
 }
 @media (max-width: 900px) {
-  section {
+  .contact {
     flex-direction: column;
   }
   .link-div, .feedback-div {
