@@ -38,7 +38,7 @@ export default function Navbar() {
 					<div className='nav-items'>
 						<Link to='/projects'>Projects</Link>
 						<a
-							href='Resume.pdf'
+							href='/Resume.pdf'
 							rel='noopener noreferrer'
 							target='_blank'>
 							Resume

@@ -1,5 +1,8 @@
-* {
-	transition: 400ms;
+.project-card,
+.project-card-expanded,
+.project-card *,
+.project-card-expanded * {
+	transition: 500ms;
 	padding: 0;
 	margin: 0;
 	color: white;
@@ -32,7 +35,12 @@
 	grid-row: 1;
 	grid-column: 1;
 	padding: 10px;
+	height: 300px;
 	z-index: 1;
+}
+.project-card-expanded .project-content {
+	padding: 20px;
+	height: auto;
 }
 
 .project-content header {
@@ -47,8 +55,9 @@
 	opacity: 1;
 }
 
-.project-content div h1 {
+.project-content header h1 {
 	flex: 0;
+	text-align: right;
 }
 
 .project-content p {
@@ -58,6 +67,7 @@
 	text-align: justify;
 	overflow: hidden;
 	opacity: 0;
+	transition: 300ms;
 }
 
 .link-list {
@@ -89,9 +99,10 @@
 
 .project-card-expanded .project-content p {
 	opacity: 1;
+	width: 60%;
 }
 
 .project-card-expanded {
-	min-width: 80vw;
+	min-width: 90%;
 	min-height: 70vh;
 }

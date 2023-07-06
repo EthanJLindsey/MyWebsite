@@ -3,16 +3,16 @@
 	cursor: pointer;
 	margin: 10px;
 }
-.bar1,
-.bar2 {
+.close-button .bar1,
+.close-button .bar2 {
 	width: 25px;
 	height: 3px;
 	background-color: #ffffff;
 	float: none;
 }
-.bar1 {
-	transform: translate(0, 3.5px) rotate(45deg);
+.close-button .bar1 {
+	transform: translate(0, 9px) rotate(45deg);
 }
-.bar2 {
-	transform: translate(0, -3.5px) rotate(-45deg);
+.close-button .bar2 {
+	transform: translate(0, 6px) rotate(-45deg);
 }
