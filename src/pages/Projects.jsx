@@ -6,13 +6,8 @@ export default function Projects() {
 	const [expanded, setExpanded] = useState(-1);
 	const [data, setData] = useState([]);
 
-	async function getProjects() {
-		const json = await fetch('/project-list.json');
-		setData(await json.json());
-	}
-
-	useEffect(()=> {
-		getProjects();
+	useEffect(() => {
+		fetch('/projects.json').then((j) => j.json().then((d) => setData(d)));
 	}, []);
 
 	return (

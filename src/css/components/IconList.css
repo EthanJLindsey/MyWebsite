@@ -1,0 +1,45 @@
+.contact-icons {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+.contact-icons li {
+	list-style: none;
+	margin: 10px;
+	transition: 200ms;
+}
+.contact-icons li:hover {
+	transform: translate(0, -2px);
+}
+
+.contact-icons .linkedin-icon:hover a svg path {
+	fill: #0a66c2;
+}
+.contact-icons .github-icon:hover a svg path {
+	fill: #aaaaaa;
+}
+.contact-icons .mail-icon:hover a svg path {
+	fill: rgb(197, 34, 31);
+}
+
+.contact-icons li a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.contact-icons li a svg path {
+	fill: white;
+}
+
+@media (max-width: 700px) {
+	.contact-icons {
+		position:initial;
+		flex-direction: row;
+	}
+}

@@ -1,0 +1,25 @@
+
+.education-card {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.education-card >* {
+  text-align: left;
+}
+.education-card * {
+  margin: 0;
+}
+
+.date{
+  flex: 0;
+}
+
+.separator {
+  width: 2px;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}

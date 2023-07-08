@@ -30,7 +30,7 @@ export default function ProjectCard({
 							behavior: 'smooth',
 							block: 'center',
 						}),
-					240
+					500
 				);
 			}}>
 			<div
@@ -39,7 +39,7 @@ export default function ProjectCard({
 			/>
 			<div className='project-content'>
 				<header>
-					<CloseButton onClick={onClick}/>
+					<CloseButton onClick={onClick} />
 					{title && <h1>{title}</h1>}
 				</header>
 				{description && <p>{description}</p>}

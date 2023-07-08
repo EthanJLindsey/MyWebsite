@@ -1,39 +1,44 @@
 @property --x {
-	syntax: '<percentage>';
+	syntax: '<length>';
 	inherits: false;
-  initial-value: 0%;
+	initial-value: 0px;
 }
 @property --y {
-	syntax: '<percentage>';
+	syntax: '<length>';
 	inherits: false;
-  initial-value: 0%;
+	initial-value: 0px;
 }
 @property --s {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 900px;
+	syntax: '<length>';
+	inherits: false;
+	initial-value: 900px;
 }
 
 @keyframes cool-background {
 	0% {
-		--x: 85%;
-		--y: 10%;
-    --s: 900px;
+		--x: 1000px;
+		--y: 50px;
+		--s: 800px;
 	}
-  33% {
-    --x:75%;
-    --y: 15%;
-    --s: 1200px;
-  }
-  66% {
-    --x: 90%;
-    --y: 20%;
-    --s: 1000px;
-  }
+	25% {
+		--x: 800px;
+		--y: 70px;
+		--s: 1200px;
+	}
+	50% {
+		--x: 850px;
+		--y: 200px;
+		--s: 700px;
+	}
+	75% {
+		--x: 950px;
+		--y: 150px;
+		--s: 900px;
+	}
 	100% {
-		--x: 85%;
-		--y: 10%;
-    --s: 900px;
+		--x: 850px;
+		--y: 10px;
+		--s: 1000px;
 	}
 }
 
@@ -46,20 +51,25 @@
 	color: white;
 	min-height: 100vh;
 	font-family: 'Courier New', Courier, monospace;
-	--x: 85%;
-	--y: 10%;
-  --s: 900px;
+	--x: 85px;
+	--y: 10px;
+	--s: 900px;
 	background-image: radial-gradient(
 		var(--s) at var(--x) var(--y),
+		rgb(248, 223, 206),
 		rgb(227, 178, 191),
 		rgb(197, 138, 172),
 		rgb(167, 104, 160),
 		rgb(120, 74, 139),
 		rgb(72, 53, 116),
-		rgb(41, 37, 94)
+		rgb(41, 37, 94),
+		rgb(28, 34, 80),
+		rgb(12, 29, 51),
+		rgb(6, 26, 35),
+		rgb(4, 24, 24, 0)
 	);
-	animation: cool-background 5s ease-in infinite;
-	background-color: rgb(45, 47, 81);
+	animation: cool-background 20s ease infinite alternate-reverse;
+	background-color: rgb(4, 24, 24);
 }
 
 h1 {

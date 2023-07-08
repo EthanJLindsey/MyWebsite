@@ -8,7 +8,6 @@
   padding: 20px;
 }
 .link-div {
-  background-color: rgb(76, 110, 210);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -2,7 +2,7 @@
 .project-card-expanded,
 .project-card *,
 .project-card-expanded * {
-	transition: 500ms;
+	transition: 1s;
 	padding: 0;
 	margin: 0;
 	color: white;
@@ -15,6 +15,7 @@
 	margin: 3px;
 	min-height: 300px;
 	min-width: 200px;
+	flex: 1 1 350px;
 }
 
 .project-background {
@@ -62,8 +63,7 @@
 
 .project-content p {
 	transition: 2s;
-	width: min-content;
-	min-width: 300px;
+	width: 70%;
 	text-align: justify;
 	overflow: hidden;
 	opacity: 0;
@@ -81,11 +81,23 @@
 	justify-content: flex-end;
 }
 
-.tags * {
+.tags > * {
+	color: transparent;
 	padding: 3px;
 	margin: 3px;
-	border: 3px solid black;
-	border-radius: 8px;
+	font-weight: bold;
+	border: 1px solid rgb(227, 178, 191);
+	border-radius: 6px;
+	background: linear-gradient(
+			to bottom right,
+			rgb(248, 223, 206),
+			rgb(227, 178, 191),
+			rgb(197, 138, 172),
+			rgb(167, 104, 160)
+		),
+		linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+	background-clip: text, padding-box;
+	-webkit-background-clip: text, padding-box;
 }
 
 .project-card .project-content:hover h1 {
@@ -101,10 +113,9 @@
 
 .project-card-expanded .project-content p {
 	opacity: 1;
-	width: 60%;
 }
 
 .project-card-expanded {
-	min-width: 90%;
-	min-height: 70vh;
+	flex: 0 1 100%;
+	min-height: 90vh;
 }

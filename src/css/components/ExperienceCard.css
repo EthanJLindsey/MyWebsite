@@ -1,0 +1,28 @@
+
+.experience-card {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.experience-card >* {
+  text-align: left;
+}
+.experience-card * {
+  margin: 0;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.separator {
+  width: 2px;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+

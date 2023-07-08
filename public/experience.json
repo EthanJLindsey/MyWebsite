@@ -1,0 +1,18 @@
+[
+	{
+		"location": "Iowa State University",
+    "department": "Computer Science Help Room",
+		"title": "Computer Science Tutor",
+		"startDate": "January 2022",
+		"endDate": "December 2022",
+		"description": ""
+	},
+	{
+		"location": "Iowa State University",
+    "department": "Exam Accomodations Center",
+		"title": "Exam Proctor",
+		"startDate": "August 2021",
+		"endDate": "December 2021",
+		"description": ""
+	}
+]
