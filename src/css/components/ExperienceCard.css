@@ -1,8 +1,14 @@
 
+.experience-card, .experience-card * {
+  transition: 0s;
+}
+
 .experience-card {
   display: flex;
   justify-content: flex-start;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
 }
 
 .experience-card >* {
@@ -25,4 +31,3 @@
   margin-right: 10px;
   border-radius: 6px;
 }
-

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
+import IconList from '../components/IconList';
 import '../css/Projects.css';
 
 export default function Projects() {
@@ -11,18 +12,21 @@ export default function Projects() {
 	}, []);
 
 	return (
-		<div className='project-list'>
-			{data.map((item, index) => (
-				<ProjectCard
-					key={index}
-					title={item.title}
-					description={item.description}
-					image={item.image}
-					tags={item.tags}
-					expanded={expanded === index}
-					onClick={() => setExpanded(index === expanded ? -1 : index)}
-				/>
-			))}
+		<div className='project-content'>
+			<IconList />
+			<div className='project-list'>
+				{data.map((item, index) => (
+					<ProjectCard
+						key={index}
+						title={item.title}
+						description={item.description}
+						image={item.image}
+						tags={item.tags}
+						expanded={expanded === index}
+						onClick={() => setExpanded(index === expanded ? -1 : index)}
+					/>
+				))}
+			</div>
 		</div>
 	);
 }

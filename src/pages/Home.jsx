@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import EducationCard from '../components/EducationCard';
 import ExperienceCard from '../components/ExperienceCard';
+import IconList from '../components/IconList';
 
 import '../css/Home.css';
 
@@ -19,6 +20,7 @@ export default function Home() {
 
 	return (
 		<section className='home-content'>
+			<IconList/>
 			{/* Title Card */}
 			<div className='introduction'>
 				<div className='intro-text'>

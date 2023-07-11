@@ -1,6 +1,18 @@
+.project-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: calc(100% - 88px);
+}
+
 .project-list {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	width: calc(100% - 88px);
+}
+
+@media (max-width: 700px) {
+	.project-content {
+		width: 98%;
+	}
 }

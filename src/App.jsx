@@ -11,7 +11,6 @@ export default function App() {
 	return (
 		<div className='App'>
 			<Navbar style={{ flex: 0 }} />
-			<IconList/>
 			<Routes>
 				<Route
 					path='/'
