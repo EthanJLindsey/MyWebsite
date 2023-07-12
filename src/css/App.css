@@ -1,75 +1,46 @@
-@property --x {
-	syntax: '<length>';
-	inherits: false;
-	initial-value: 0px;
-}
-@property --y {
-	syntax: '<length>';
-	inherits: false;
-	initial-value: 0px;
-}
-@property --s {
-	syntax: '<length>';
-	inherits: false;
-	initial-value: 900px;
-}
-
-@keyframes cool-background {
-	0% {
-		--x: 1000px;
-		--y: 50px;
-		--s: 800px;
-	}
-	25% {
-		--x: 800px;
-		--y: 70px;
-		--s: 1200px;
-	}
-	50% {
-		--x: 850px;
-		--y: 200px;
-		--s: 700px;
-	}
-	75% {
-		--x: 950px;
-		--y: 150px;
-		--s: 900px;
-	}
-	100% {
-		--x: 850px;
-		--y: 10px;
-		--s: 1000px;
-	}
-}
+@import 'Root.css';
 
 .App {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	color: white;
-	min-height: 100vh;
+	display: grid;
 	font-family: 'Courier New', Courier, monospace;
-	--x: 85px;
-	--y: 10px;
-	--s: 900px;
+	color: var(--on-primary);
+	background-color: var(--gradient-10);
+	max-width: 100vw;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.App >* {
+	grid-column: 1;
+	grid-row: 1;
+	z-index: 1;
+}
+
+.App #glow-animation {
+	overflow: hidden;
+}
+.App #glow-animation >* {
+	z-index: 0;
+	position: relative;
+	height: 500px;
+	width: 500px;
+	top: 50%;
+	left: 50%;
 	background-image: radial-gradient(
-		var(--s) at var(--x) var(--y),
-		rgb(248, 223, 206),
-		rgb(227, 178, 191),
-		rgb(197, 138, 172),
-		rgb(167, 104, 160),
-		rgb(120, 74, 139),
-		rgb(72, 53, 116),
-		rgb(41, 37, 94),
-		rgb(28, 34, 80),
-		rgb(12, 29, 51),
-		rgb(6, 26, 35),
-		rgb(4, 24, 24, 0)
+		250px at 250px 250px,
+		var(--gradient-1),
+		var(--gradient-2),
+		var(--gradient-3),
+		var(--gradient-4),
+		var(--gradient-5),
+		var(--gradient-6),
+		var(--gradient-7),
+		var(--gradient-8),
+		var(--gradient-9),
+		var(--gradient-10),
+		transparent
 	);
-	animation: cool-background 20s ease infinite alternate-reverse;
-	background-color: rgb(4, 24, 24);
+	transition: 2s;
 }
 
 h1 {

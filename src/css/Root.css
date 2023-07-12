@@ -1,0 +1,13 @@
+:root {
+	--on-primary: white;
+	--gradient-1: rgb(248, 223, 206);
+	--gradient-2: rgb(227, 178, 191);
+	--gradient-3: rgb(197, 138, 172);
+	--gradient-4: rgb(167, 104, 160);
+	--gradient-5: rgb(120, 74, 139);
+	--gradient-6: rgb(72, 53, 116);
+	--gradient-7: rgb(41, 37, 94);
+	--gradient-8: rgb(28, 34, 80);
+	--gradient-9: rgb(12, 29, 51);
+	--gradient-10: rgb(6, 26, 35);
+}
