@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import $ from 'jquery';
 
 import '../css/Navbar.css';
 import DrawerButton from '../components/DrawerButton';
 import Dropdown from '../components/Dropdown';
 
 export default function Navbar() {
-	const [vis, setVis] = useState(
-		window.matchMedia('(max-width: 700px)').matches
-	);
+	const [vis, setVis] = useState($(window).width() < 700);
 	const [open, setOpen] = useState(false);
-	window.matchMedia('(max-width: 700px)').addEventListener('change', () => {
-		setVis((v) => !v);
+
+	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
+		const w = e.matches;
+		setVis((v) => w);
 		setOpen((o) => false);
 	});
+
+	// useEffect(()=>{
+	// }, []);
 	return (
 		<nav className='navbar'>
 			{/* Left side items */}

@@ -20,7 +20,6 @@ export default function App() {
 			setY(Math.random() * $('.App').height()-250);
 			setSize(Math.random() * 3 + 2);
 			setTime(Math.random() * 4 + 4);
-			console.log('set');
 		}, time * 1000);
 		return () => clearInterval(interval);
 	});

@@ -37,7 +37,7 @@ export default function ProjectCard({
 				className='project-background'
 				style={{ backgroundImage: `url(${image})` }}
 			/>
-			<div className='project-content'>
+			<div className='project-info'>
 				<header>
 					<CloseButton onClick={onClick} />
 					{title && <h1>{title}</h1>}
