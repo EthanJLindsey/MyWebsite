@@ -1,7 +1,21 @@
+import { API, graphqlOperation } from 'aws-amplify';
 import '../css/Contact.css';
 
-function f() {
-	console.log('submitted');
+import {createMessage} from '../graphql/mutations';
+import $ from 'jquery';
+
+async function f() {
+	console.log('submitting...');
+	const message = $('#input-text').val()
+	if (message === '') return;
+	$('#input-text').val('');
+	try{
+		await API.graphql(graphqlOperation(createMessage, {input: {content: message}}));
+	} catch (resp) {
+		for (const err in resp.errors)console.log(err.message);
+	}
+	console.log(`Submitted message: "${message}"`);
+	alert('Message successfully sent.');
 }
 
 export default function Contact() {
@@ -42,7 +56,7 @@ export default function Contact() {
 					You can email me or send me a message on LinkedIn! Alternatively, you
 					can also sent me direct feedback using the textbox below.
 				</p>
-				<textarea rows='5'></textarea>
+				<textarea id='input-text' rows='5'></textarea>
 				<button
 					onClick={f}
 					className='submit-button'>

@@ -1,8 +1,8 @@
 import '../css/components/IconList.css';
 
-import {ReactComponent as EmailSVG} from '../iconmonstr-paper-plane-1.svg';
-import {ReactComponent as LinkedinSVG} from '../iconmonstr-linkedin-3.svg';
-import {ReactComponent as GithubSVG} from '../iconmonstr-github-1.svg';
+import {ReactComponent as EmailSVG} from '../svg/iconmonstr-paper-plane-1.svg';
+import {ReactComponent as LinkedinSVG} from '../svg/iconmonstr-linkedin-3.svg';
+import {ReactComponent as GithubSVG} from '../svg/iconmonstr-github-1.svg';
 
 export default function IconList() {
 	return (
