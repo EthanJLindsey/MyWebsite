@@ -9,44 +9,6 @@
 	min-height: 100vh;
 	overflow: hidden;
 }
-
-.App >* {
-	grid-column: 1;
-	grid-row: 1;
-	z-index: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-}
-
-.App #glow-animation {
-	overflow: hidden;
-}
-.App #glow-animation >* {
-	z-index: 0;
-	position: relative;
-	height: 500px;
-	width: 500px;
-	top: 50%;
-	left: 50%;
-	background-image: radial-gradient(
-		250px at 250px 250px,
-		var(--gradient-1),
-		var(--gradient-2),
-		var(--gradient-3),
-		var(--gradient-4),
-		var(--gradient-5),
-		var(--gradient-6),
-		var(--gradient-7),
-		var(--gradient-8),
-		var(--gradient-9),
-		var(--gradient-10),
-		transparent
-	);
-	transition: 2s;
-}
-
 h1 {
 	margin-bottom: 0;
 	font-size: 40px;

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
-import '../css/components/ProjectCard.css';
+import '../../css/components/ProjectCard.css';
 import CloseButton from './CloseButton';
 
 function f(tag) {

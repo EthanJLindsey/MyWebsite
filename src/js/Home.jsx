@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import EducationCard from '../components/EducationCard';
-import ExperienceCard from '../components/ExperienceCard';
-import IconList from '../components/IconList';
+import EducationCard from './components/EducationCard';
+import ExperienceCard from './components/ExperienceCard';
+import IconList from './components/IconList';
 
 import '../css/Home.css';
 

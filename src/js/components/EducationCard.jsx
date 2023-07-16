@@ -1,4 +1,4 @@
-import '../css/components/EducationCard.css';
+import '../../css/components/EducationCard.css';
 
 export default function EducationCard({ location, degree, gpa, date }) {
 	return (

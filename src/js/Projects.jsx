@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import ProjectCard from '../components/ProjectCard';
-import IconList from '../components/IconList';
+import ProjectCard from './components/ProjectCard';
+import IconList from './components/IconList';
 import '../css/Projects.css';
 
 export default function Projects() {

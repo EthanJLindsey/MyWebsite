@@ -1,4 +1,4 @@
-import '../css/components/CloseButton.css';
+import '../../css/components/CloseButton.css';
 
 export default function CloseButton({ onClick }) {
 	return (

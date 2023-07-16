@@ -1,5 +1,6 @@
 :root {
 	--on-primary: white;
+	--on-hover: rgb(99, 196, 245);
 	--gradient-1: rgb(248, 223, 206);
 	--gradient-2: rgb(227, 178, 191);
 	--gradient-3: rgb(197, 138, 172);
@@ -10,4 +11,18 @@
 	--gradient-8: rgb(28, 34, 80);
 	--gradient-9: rgb(12, 29, 51);
 	--gradient-10: rgb(6, 26, 35);
+	--glow-image: radial-gradient(
+		250px at 50% 50%,
+		var(--gradient-1),
+		var(--gradient-2),
+		var(--gradient-3),
+		var(--gradient-4),
+		var(--gradient-5),
+		var(--gradient-6),
+		var(--gradient-7),
+		var(--gradient-8),
+		var(--gradient-9),
+		var(--gradient-10),
+		transparent
+	);
 }

@@ -1,4 +1,4 @@
-import '../css/components/Dropdown.css';
+import '../../css/components/Dropdown.css';
 
 export default function Dropdown({active, open, children }) {
 	return active? (

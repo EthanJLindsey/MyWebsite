@@ -1,4 +1,4 @@
-import '../css/components/ExperienceCard.css';
+import '../../css/components/ExperienceCard.css';
 
 export default function ExperienceCard({
 	location,
