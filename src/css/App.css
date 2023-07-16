@@ -1,13 +1,11 @@
 @import 'Root.css';
 
 .App {
-	display: grid;
 	font-family: 'Courier New', Courier, monospace;
 	color: var(--on-primary);
 	background-color: var(--gradient-10);
 	max-width: 100vw;
 	min-height: 100vh;
-	overflow: hidden;
 }
 h1 {
 	margin-bottom: 0;

@@ -12,7 +12,7 @@
 	--gradient-9: rgb(12, 29, 51);
 	--gradient-10: rgb(6, 26, 35);
 	--glow-image: radial-gradient(
-		250px at 50% 50%,
+		125px at 50% 50%,
 		var(--gradient-1),
 		var(--gradient-2),
 		var(--gradient-3),

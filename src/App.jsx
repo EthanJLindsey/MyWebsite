@@ -14,7 +14,7 @@ export default function App() {
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
-				justifyContent: 'center'
+				justifyContent: 'flex-start'
 			}}>
 				<Navbar style={{width: '100%'}}/>
 				<Routes>
