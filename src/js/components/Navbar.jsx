@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import $ from 'jquery';
 
-import DrawerButton from './DrawerButton';
+import DrawerButton from '../primitives/DrawerButton';
 
 export default function Navbar({ style }) {
 	const [vis, setVis] = useState($(window).width() < 700);
@@ -19,13 +19,11 @@ export default function Navbar({ style }) {
 			e.target.style.transform = 'translate(0,-2px)';
 		},
 		onMouseLeave: (e) => {
-			e.target.style.color = linkStyle.color;
+			e.target.style.color = 'inherit';
 			e.target.style.transform = 'none';
 		},
 	};
 	const linkStyle = {
-		textDecoration: 'none',
-		color: 'var(--on-primary)',
 		transition: '200ms',
 	};
 	const childStyle = {
@@ -62,7 +60,7 @@ export default function Navbar({ style }) {
 					flexBasis: vis ? '100%' : 'fit-content',
 					overflow: 'hidden',
 					transition: '200ms',
-					height: vis ? (open ? '84px' : 0) : 'fit-content',
+					height: vis ? (open ? '96px' : 0) : 'fit-content',
 					display: 'flex',
 					flexDirection: vis ? 'column' : 'row',
 					alignItems: vis && 'center',

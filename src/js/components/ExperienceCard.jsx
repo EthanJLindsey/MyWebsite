@@ -1,4 +1,5 @@
 import '../../css/components/ExperienceCard.css';
+import Separator from '../primitives/Separator';
 
 export default function ExperienceCard({
 	location,
@@ -14,7 +15,7 @@ export default function ExperienceCard({
 				<div>{startDate}</div>
 				<div>{endDate}</div>
 			</div>
-			<div className='separator' />
+			<Separator />
 			<div>
 				<h3>{location} - {department}</h3>
 				<h4>{title}</h4>

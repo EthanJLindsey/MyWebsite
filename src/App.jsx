@@ -14,7 +14,8 @@ export default function App() {
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
-				justifyContent: 'flex-start'
+				justifyContent: 'flex-start',
+				minHeight: '100vh'
 			}}>
 				<Navbar style={{width: '100%'}}/>
 				<Routes>

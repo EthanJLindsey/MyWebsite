@@ -23,11 +23,3 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
-.separator {
-  width: 2px;
-  background-color: white;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 6px;
-}
