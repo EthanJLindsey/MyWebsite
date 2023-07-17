@@ -29,14 +29,14 @@ export default function DrawerButton({ onClick, ...rest }) {
 			<div
 				style={{
 					...barStyle,
-					...(active && { transform: 'translate(0, 6.2px) rotate(-45deg)' }),
+					...(active && { transform: 'translate(0, 6.2px) rotate(45deg)' }),
 				}}
 			/>
 			<div style={{ ...barStyle, ...(active && { opacity: 0 }) }} />
 			<div
 				style={{
 					...barStyle,
-					...(active && { transform: 'translate(0, -6.2px) rotate(45deg)' }),
+					...(active && { transform: 'translate(0, -6.2px) rotate(-45deg)' }),
 				}}
 			/>
 		</div>

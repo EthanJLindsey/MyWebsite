@@ -2,6 +2,7 @@
 	{
 		"title": "AntHill",
 		"description": "AntHill was my senior design team project where we designed a social media application that connected users to collaborate on projects. I personally implemented ~60% of the final code. I resolved a critical security flaw where the login process downloaded , our entire user database to a malicious users device. We used Firebase, which is a cloud computing platform similar to AWS, where we could store our data and host our website. Note that our Firebase is no longer running after our graduation date.",
+		"image": "/projects/anthill-code.png",
 		"tags": [
 			"Flutter",
 			"Dart",
@@ -10,12 +11,12 @@
 			"Website",
 			"Agile",
 			"Team Project"
-		],
-		"image": "/projects/anthill-code.png"
+		]
 	},
 	{
 		"title": "Web Adventure",
 		"description": "Web adventure was a personal project intended to give me more experience with Spring Boot and JavaScript. Users can create accounts and login using a MySQL database and Spring Security. I made a custom animation handling API to decouple the animation from the objects, which decreased development time. The character is animated, can move in the surrounding area, can swing his sword, can jump, and can sprint.",
+		"image": "/projects/webadventure-example.png",
 		"tags": [
 			"Kotlin",
 			"Javascript",
@@ -23,7 +24,22 @@
 			"MySQL",
 			"Website",
 			"Personal Project"
+		]
+	},
+	{
+		"title": "ethandev.net",
+		"description": "This website",
+		"tags": [
+			"React",
+			"AWS",
+			"Personal Project",
+			"Website"
 		],
-		"image": "/projects/webadventure-example.png"
+		"links": [
+			{
+				"name": "GitHub",
+				"link": "https://github.com/EthanJLindsey/MyWebsite"
+			}
+		]
 	}
 ]
