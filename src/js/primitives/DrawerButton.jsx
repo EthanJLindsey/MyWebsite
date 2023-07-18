@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-export default function DrawerButton({ onClick, ...rest }) {
-	const [active, setActive] = useState(false);
+export default function DrawerButton({active = false, onClick, ...rest }) {
 
 	rest.style = {
 		...rest.style,
@@ -23,7 +22,6 @@ export default function DrawerButton({ onClick, ...rest }) {
 		<div
 			onClick={() => {
 				onClick();
-				setActive(() => !active);
 			}}
 			{...rest}>
 			<div

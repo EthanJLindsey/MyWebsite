@@ -30,7 +30,7 @@ export default function ProjectCard({
 							behavior: 'smooth',
 							block: 'center',
 						}),
-					500
+					600
 				);
 			}}>
 			<div

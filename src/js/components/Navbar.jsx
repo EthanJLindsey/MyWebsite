@@ -9,8 +9,8 @@ export default function Navbar({ style }) {
 	const [open, setOpen] = useState(false);
 
 	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
-		setVis((v) => e.matches);
-		setOpen((o) => false);
+		setVis(e.matches);
+		setOpen(false);
 	});
 
 	const hoverProps = {
@@ -23,6 +23,11 @@ export default function Navbar({ style }) {
 			e.target.style.transform = 'none';
 		},
 	};
+	const closeDrawerProps = {
+		onClick: ()=>{
+			setOpen(false);
+		}
+	}
 	const linkStyle = {
 		transition: '200ms',
 	};
@@ -42,15 +47,17 @@ export default function Navbar({ style }) {
 			{/* Left side items */}
 			{vis && (
 				<DrawerButton
-					onClick={() => setOpen((o) => !o)}
+					onClick={() => setOpen(!open)}
 					style={{ ...childStyle }}
+					active={open}
 				/>
 			)}
 			<Link
 				to='/'
 				className='title'
-				style={{...childStyle, ...linkStyle}}
-				{...hoverProps}>
+				style={{ ...childStyle, ...linkStyle }}
+				{...hoverProps}
+				{...closeDrawerProps}>
 				Ethan Lindsey
 			</Link>
 			{/* Right side items */}
@@ -60,7 +67,7 @@ export default function Navbar({ style }) {
 					flexBasis: vis ? '100%' : 'fit-content',
 					overflow: 'hidden',
 					transition: '200ms',
-					height: vis ? (open ? '96px' : 0) : 'fit-content',
+					height: vis ? (open ? '105.6px' : 0) : 'fit-content',
 					display: 'flex',
 					flexDirection: vis ? 'column' : 'row',
 					alignItems: vis && 'center',
@@ -68,22 +75,25 @@ export default function Navbar({ style }) {
 				}}>
 				<Link
 					to='/projects'
-					style={{...childStyle, ...linkStyle}}
-					{...hoverProps}>
+					style={{ ...childStyle, ...linkStyle }}
+					{...hoverProps}
+					{...closeDrawerProps}>
 					Projects
 				</Link>
 				<a
 					href='/Resume.pdf'
 					rel='noopener noreferrer'
 					target='_blank'
-					style={{...childStyle, ...linkStyle}}
-					{...hoverProps}>
+					style={{ ...childStyle, ...linkStyle }}
+					{...hoverProps}
+					{...closeDrawerProps}>
 					Resume
 				</a>
 				<Link
 					to='/contact'
-					style={{...childStyle, ...linkStyle}}
-					{...hoverProps}>
+					style={{ ...childStyle, ...linkStyle }}
+					{...hoverProps}
+					{...closeDrawerProps}>
 					Contact Me
 				</Link>
 			</div>
