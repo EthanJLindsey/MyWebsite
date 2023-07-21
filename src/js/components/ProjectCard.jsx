@@ -24,12 +24,8 @@ export default function ProjectCard({
 				setHover(false);
 				onClick();
 				setTimeout(
-					() =>
-						ref.current.scrollIntoView({
-							behavior: 'smooth',
-							block: 'center',
-						}),
-					800
+					() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
+					900
 				);
 			}}
 			onMouseEnter={() => {
@@ -41,7 +37,7 @@ export default function ProjectCard({
 			style={{
 				padding: 0,
 				margin: '3px',
-				transition: '1s',
+				transition: '600ms',
 				display: 'grid',
 				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
 				minHeight: expanded ? '95vh' : '300px',
@@ -77,7 +73,13 @@ export default function ProjectCard({
 						justifyContent: 'space-between',
 					}}>
 					<CloseButton
-						onClick={onClick}
+						onClick={() => {
+							onClick();
+							setTimeout(
+								() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
+								900
+							);
+						}}
 						style={{
 							opacity: expanded ? 1 : 0,
 							transition: '200ms',
@@ -102,7 +104,7 @@ export default function ProjectCard({
 							width: '100%',
 							display: 'flex',
 							padding: '10px',
-							flex: `0 1 ${expanded? 'auto': 0}`,
+							flex: `0 1 ${expanded ? 'auto' : 0}`,
 							justifyContent: 'flex-end',
 							opacity: expanded ? 1 : 0,
 							// height: expanded ? 'auto' : 0,
@@ -132,7 +134,7 @@ export default function ProjectCard({
 					style={{
 						opacity: expanded ? 1 : 0,
 						fontSize: '20px',
-						flex: `1 1 ${expanded? 'fit-content': '0px'}`,
+						flex: `1 1 ${expanded ? '80px' : '0px'}`,
 						transition: '600ms',
 						overflow: 'hidden',
 						width: '80%',
