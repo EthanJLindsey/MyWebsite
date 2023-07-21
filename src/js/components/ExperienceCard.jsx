@@ -17,8 +17,8 @@ export default function ExperienceCard({
 			</div>
 			<Separator />
 			<div>
-				<h3>{location} - {department}</h3>
-				<h4>{title}</h4>
+				<h4>{location} - {department}</h4>
+				<h5>{title}</h5>
         <p>{description}</p>
 			</div>
 		</div>

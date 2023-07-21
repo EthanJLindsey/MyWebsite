@@ -44,7 +44,7 @@ export default function ProjectCard({
 				transition: '1s',
 				display: 'grid',
 				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
-				height: expanded ? '95vh' : '300px',
+				minHeight: expanded ? '95vh' : '300px',
 			}}>
 			{/* Background image */}
 			<div
@@ -67,11 +67,13 @@ export default function ProjectCard({
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'space-between',
+					alignItems: 'center',
 				}}>
 				<header
 					style={{
 						flex: '0',
 						display: 'flex',
+						width: '100%',
 						justifyContent: 'space-between',
 					}}>
 					<CloseButton
@@ -82,36 +84,28 @@ export default function ProjectCard({
 						}}
 					/>
 					{title && (
-						<h1
+						<h2
 							style={{
 								transition: '200ms',
 								transform: hover ? 'translate(2px,2px)' : 'initial',
 								color: hover ? 'var(--on-hover)' : 'inherit',
 							}}>
 							{title}
-						</h1>
+						</h2>
 					)}
 				</header>
-
-				{/* TODO fades in but cuts out */}
-				<p
-					style={{
-						opacity: expanded ? 1 : 0,
-						flex: `0 1 ${expanded ? 'auto' : 0}`,
-						transition: '600ms',
-						overflow: 'clip',
-					}}>
-					{description}
-				</p>
 
 				{/* Links section */}
 				{links && (
 					<div
 						style={{
+							width: '100%',
 							display: 'flex',
+							padding: '10px',
+							flex: `0 1 ${expanded? 'auto': 0}`,
 							justifyContent: 'flex-end',
 							opacity: expanded ? 1 : 0,
-							height: expanded ? 'auto' : 0,
+							// height: expanded ? 'auto' : 0,
 							transition: '200ms',
 							overflow: 'hidden',
 						}}>
@@ -133,9 +127,23 @@ export default function ProjectCard({
 					</div>
 				)}
 
+				{/* TODO fades in but cuts out */}
+				<p
+					style={{
+						opacity: expanded ? 1 : 0,
+						fontSize: '20px',
+						flex: `1 1 ${expanded? 'fit-content': '0px'}`,
+						transition: '600ms',
+						overflow: 'hidden',
+						width: '80%',
+					}}>
+					{description}
+				</p>
+
 				{/* Tags section */}
 				<div
 					style={{
+						width: '100%',
 						flex: 0,
 						display: 'flex',
 						flexWrap: 'wrap',

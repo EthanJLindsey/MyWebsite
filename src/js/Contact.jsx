@@ -22,7 +22,7 @@ export default function Contact() {
 	return (
 		<div className='contact'>
 			<div className='link-div'>
-				<h1>Contact Me</h1>
+				<h2>Contact Me</h2>
 				<ul>
 					<li>
 						Email&nbsp;
@@ -51,7 +51,7 @@ export default function Contact() {
 				</ul>
 			</div>
 			<div className='feedback-div'>
-				<h1>Have questions or want to share comments with me?</h1>
+				<h3>Have questions or want to share comments with me?</h3>
 				<p>
 					You can email me or send me a message on LinkedIn! Alternatively, you
 					can also sent me direct feedback using the textbox below.

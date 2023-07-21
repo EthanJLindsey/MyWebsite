@@ -7,9 +7,9 @@ export default function EducationCard({ location, degree, gpa, date }) {
 			<div className='date'>{date}</div>
 			<Separator/>
 			<div>
-				<h3>{location}</h3>
-				<h4>{degree}</h4>
-				<h4>{gpa} GPA</h4>
+				<h4>{location}</h4>
+				<h5>{degree}</h5>
+				<p>{gpa} GPA</p>
 			</div>
 		</div>
 	);

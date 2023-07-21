@@ -19,15 +19,15 @@ export default function Home() {
 
 	return (
 		<section className='home-content'>
-			<IconList/>
+			<IconList />
 			{/* Title Card */}
 			<div className='introduction'>
-				<div className='intro-text'>
+				<div>
 					<h1>Hi, I'm Ethan Lindsey.</h1>
 					<h2>Developer</h2>
 				</div>
 			</div>
-			<h2>Education</h2>
+			<h3>Education</h3>
 			{education.map((e, i) => (
 				<EducationCard
 					key={i}
@@ -37,7 +37,7 @@ export default function Home() {
 					date={e.date}
 				/>
 			))}
-			<h2>Experience</h2>
+			<h3>Experience</h3>
 			{experience.map((e, i) => (
 				<ExperienceCard
 					key={i}
