@@ -15,7 +15,13 @@ export default function ProjectCard({
 	onClick,
 }) {
 	const [hover, setHover] = useState(false);
+	const [mobile, setMobile] = useState(window.matchMedia('(max-width: 700px)').matches);
 	const ref = useRef();
+
+	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
+		setMobile(e.matches);
+	});
+
 	return (
 		<div
 			ref={ref}
@@ -25,7 +31,7 @@ export default function ProjectCard({
 				onClick();
 				setTimeout(
 					() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-					900
+					40
 				);
 			}}
 			onMouseEnter={() => {
@@ -37,10 +43,13 @@ export default function ProjectCard({
 			style={{
 				padding: 0,
 				margin: '3px',
-				transition: '600ms',
+				border: '2px solid var(--gradient-6)',
+				borderRadius: '6px',
+				overflow: 'clip',
 				display: 'grid',
 				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
-				minHeight: expanded ? '95vh' : '300px',
+				minHeight: 'fit-content',
+				height: expanded? 'auto': '300px'
 			}}>
 			{/* Background image */}
 			<div
@@ -48,11 +57,11 @@ export default function ProjectCard({
 					backgroundImage: `url(${image})`,
 					backgroundSize: 'cover',
 					transition: 'inherit',
-					filter: `brightness(${expanded ? 0.4 : 0.7})`,
+					filter: `brightness(${expanded ? 0.3 : 0.6})`,
 					gridColumn: 1,
 					gridRow: 1,
 				}}
-			/>
+				/>
 			{/* Content */}
 			<div
 				style={{
@@ -77,7 +86,7 @@ export default function ProjectCard({
 							onClick();
 							setTimeout(
 								() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-								900
+								40
 							);
 						}}
 						style={{
@@ -134,10 +143,9 @@ export default function ProjectCard({
 					style={{
 						opacity: expanded ? 1 : 0,
 						fontSize: '20px',
-						flex: `1 1 ${expanded ? '80px' : '0px'}`,
-						transition: '600ms',
+						flex: `1 1 fit-content`,
 						overflow: 'hidden',
-						width: '80%',
+						width: mobile? '100%': '80%',
 					}}>
 					{description}
 				</p>
