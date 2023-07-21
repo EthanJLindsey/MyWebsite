@@ -11,13 +11,14 @@
 a, Link {
 	text-decoration: none;
 	color: inherit;
+	transition: 150ms;
 }
 
 li {
 	list-style: none;
 }
 
-path {
+svg * {
 	fill: inherit;
 	width: 100%;
 	height: 100%;

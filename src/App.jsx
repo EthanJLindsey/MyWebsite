@@ -6,18 +6,20 @@ import Projects from './js/Projects';
 import Contact from './js/Contact';
 import Home from './js/Home';
 import GlowWrapper from './js/components/GlowWrapper';
+import MyFooter from './js/components/MyFooter';
 
 export default function App() {
 	return (
 		<div className='App'>
-			<GlowWrapper style={{
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				justifyContent: 'flex-start',
-				minHeight: '100vh'
-			}}>
-				<Navbar style={{width: '100%'}}/>
+			<GlowWrapper
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+					justifyContent: 'flex-start',
+					minHeight: '100vh',
+				}}>
+				<Navbar style={{ width: '100%' }} />
 				<Routes>
 					<Route
 						path='/'
@@ -32,6 +34,7 @@ export default function App() {
 						element={<Contact />}
 					/>
 				</Routes>
+				<MyFooter />
 			</GlowWrapper>
 		</div>
 	);

@@ -12,7 +12,7 @@ export default function GlowWrapper({ children, style, ...rest }) {
 			setX(Math.random() * $('.glow-background').width() - 250);
 			setY(Math.random() * $('.glow-background').height() - 250);
 			setSize(Math.random() * 6 + 4);
-			setTime(Math.random() * 4 + 4);
+			setTime(Math.random() * 4 + 6);
 		}, time * 1000);
 		return () => clearInterval(interval);
 	});

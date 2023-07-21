@@ -1,6 +1,5 @@
-import { ReactComponent as EmailSVG } from '../../svg/iconmonstr-paper-plane-1.svg';
-import { ReactComponent as LinkedinSVG } from '../../svg/iconmonstr-linkedin-3.svg';
-import { ReactComponent as GithubSVG } from '../../svg/iconmonstr-github-1.svg';
+import { ReactComponent as LinkedinSVG } from '../../svg/icons8-linkedin.svg';
+import { ReactComponent as GithubSVG } from '../../svg/icons8-github.svg';
 import { useState, useEffect } from 'react';
 
 export default function IconList() {
@@ -20,9 +19,8 @@ export default function IconList() {
 	);
 
 	const iconStyle = {
-		height: '30px',
-		width: '30px',
-		margin: '5px',
+		height: '40px',
+		width: '40px',
 		transition: '200ms',
 	};
 
@@ -37,7 +35,7 @@ export default function IconList() {
 				position: mobile ? 'initial' : 'fixed',
 				flexDirection: mobile ? 'row' : 'column',
 			}}>
-			<li>
+			{/* <li>
 				<a href='mailto: ethan.james.lindsey@gmail.com'>
 					<EmailSVG
 						onMouseEnter={() => setHover(1)}
@@ -49,7 +47,7 @@ export default function IconList() {
 						}}
 					/>
 				</a>
-			</li>
+			</li> */}
 			<li>
 				<a
 					href='https://www.linkedin.com/in/ejlindseycs/'

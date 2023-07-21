@@ -13,7 +13,6 @@ export default function Home() {
 	useEffect(() => {
 		fetch('/education.json').then((j) => j.json().then((d) => setEd(d)));
 	}, []);
-
 	useEffect(() => {
 		fetch('/experience.json').then((j) => j.json().then((d) => setEx(d)));
 	}, []);
@@ -26,9 +25,7 @@ export default function Home() {
 				<div className='intro-text'>
 					<h1>Hi, I'm Ethan Lindsey.</h1>
 					<h2>Developer</h2>
-					<h2>Tutor</h2>
 				</div>
-				<div>hello</div>
 			</div>
 			<h2>Education</h2>
 			{education.map((e, i) => (

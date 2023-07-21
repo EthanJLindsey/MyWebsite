@@ -18,10 +18,7 @@ export default function Projects() {
 				{data.map((item, index) => (
 					<ProjectCard
 						key={index}
-						title={item.title}
-						description={item.description}
-						image={item.image}
-						tags={item.tags}
+						{...item}
 						expanded={expanded === index}
 						onClick={() => setExpanded(index === expanded ? -1 : index)}
 					/>
