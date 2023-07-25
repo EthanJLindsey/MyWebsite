@@ -60,4 +60,9 @@ textarea {
 
 button {
 	margin: 5px;
+	border-radius: var(--border-radius);
+	background: rgb(255,255,255,.25);
+	backdrop-filter: brightness(3.5) grayscale(0.2);
+	border: 0;
+	cursor: pointer;
 }

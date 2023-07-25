@@ -32,7 +32,14 @@ export default function IconList() {
 			<a
 				href='mailto: ethan.james.lindsey@gmail.com'
 				className={['blue-hover'].join(' ')}
-				style={{ fontSize: '40px', padding: '5px', textAlign: 'center' }}>
+				style={{
+					fontSize: '40px',
+					padding: '5px',
+					textAlign: 'center',
+					lineHeight: '20px',
+					height: '30px',
+					width: '30px',
+				}}>
 				@
 			</a>
 			<a

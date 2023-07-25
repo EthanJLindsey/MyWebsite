@@ -149,7 +149,7 @@ export default function ProjectCard({
 					style={{
 						opacity: expanded ? 1 : 0,
 						fontSize: '20px',
-						flex: `1 1 fit-content`,
+						flex: `1 1 ${expanded? 'fit-content': 0}`,
 						overflow: 'hidden',
 						width: mobile? '100%': '80%',
 					}}>

@@ -4,10 +4,8 @@ import { createMessage } from '../graphql/mutations';
 import $ from 'jquery';
 
 async function f() {
-	console.log('submitting...');
 	const message = $('#input-text').val();
 	if (message === '') return;
-	$('#input-text').val('');
 	try {
 		await API.graphql(
 			graphqlOperation(createMessage, { input: { content: message } })
@@ -17,6 +15,7 @@ async function f() {
 	}
 	console.log(`Submitted message: "${message}"`);
 	alert('Message successfully sent.');
+	$('#input-text').val('');
 }
 
 export default function Contact() {
@@ -86,7 +85,7 @@ export default function Contact() {
 					id='input-text'
 					rows='5'
 					style={{
-						width: '50%',
+						width: '300px',
 						height: '150px',
 					}}
 				/>
