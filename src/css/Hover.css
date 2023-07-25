@@ -1,0 +1,18 @@
+.blue-hover {
+	transition: 200ms;
+	&:hover {
+		color: var(--hover-color);
+		transform: translate(0, -2px);
+	}
+}
+
+.icon {
+	transition: 200ms;
+	height: 40px;
+	width: 40px;
+	fill: white;
+}
+.hover-icon:hover {
+	fill: var(--hover-color);
+	transform: translate(0, -2px);
+}

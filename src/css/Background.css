@@ -1,0 +1,6 @@
+.bright-background {
+	background: rgb(255,255,255,.25);
+	backdrop-filter: brightness(3.5) grayscale(0.2);
+	color: black;
+	overflow: hidden;
+}

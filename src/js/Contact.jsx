@@ -1,18 +1,19 @@
 import { API, graphqlOperation } from 'aws-amplify';
-import '../css/Contact.css';
 
-import {createMessage} from '../graphql/mutations';
+import { createMessage } from '../graphql/mutations';
 import $ from 'jquery';
 
 async function f() {
 	console.log('submitting...');
-	const message = $('#input-text').val()
+	const message = $('#input-text').val();
 	if (message === '') return;
 	$('#input-text').val('');
-	try{
-		await API.graphql(graphqlOperation(createMessage, {input: {content: message}}));
+	try {
+		await API.graphql(
+			graphqlOperation(createMessage, { input: { content: message } })
+		);
 	} catch (resp) {
-		for (const err in resp.errors)console.log(err.message);
+		for (const err in resp.errors) console.log(err.message);
 	}
 	console.log(`Submitted message: "${message}"`);
 	alert('Message successfully sent.');
@@ -20,13 +21,32 @@ async function f() {
 
 export default function Contact() {
 	return (
-		<div className='contact'>
-			<div className='link-div'>
+		<div
+			style={{
+				display: 'flex',
+				flexWrap: 'wrap',
+				alignItems: 'center',
+				width: '90%',
+			}}>
+			<div
+				style={{
+					flex: '1 1 350px',
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center'
+				}}>
 				<h2>Contact Me</h2>
-				<ul>
+				<ul
+					className='bright-background' style={{
+						padding: '5px',
+						borderRadius: 'var(--border-radius)'
+					}}>
 					<li>
 						Email&nbsp;
-						<a href='mailto: ethan.james.lindsey@gmail.com'>
+						<a
+							href='mailto: ethan.james.lindsey@gmail.com'
+							style={{ color: 'inherit' }}>
 							ethan.james.lindsey@gmail.com
 						</a>
 					</li>
@@ -50,13 +70,26 @@ export default function Contact() {
 					</li>
 				</ul>
 			</div>
-			<div className='feedback-div'>
+			<div
+				style={{
+					flex: '1 1 350px',
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}>
 				<h3>Have questions or want to share comments with me?</h3>
 				<p>
 					You can email me or send me a message on LinkedIn! Alternatively, you
 					can also sent me direct feedback using the textbox below.
 				</p>
-				<textarea id='input-text' rows='5'></textarea>
+				<textarea
+					id='input-text'
+					rows='5'
+					style={{
+						width: '50%',
+						height: '150px',
+					}}
+				/>
 				<button
 					onClick={f}
 					className='submit-button'>

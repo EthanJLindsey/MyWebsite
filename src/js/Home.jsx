@@ -21,7 +21,9 @@ export default function Home() {
 		<section className='home-content'>
 			<IconList />
 			{/* Title Card */}
-			<div className='introduction'>
+			<div className='introduction' style={{
+				height: '90vh',
+			}}>
 				<div>
 					<h1>Hi, I'm Ethan Lindsey.</h1>
 					<h2>Developer</h2>

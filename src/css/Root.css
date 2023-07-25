@@ -1,6 +1,7 @@
 :root {
 	--on-primary: white;
-	--on-hover: rgb(99, 196, 245);
+	--hover-color: rgb(99, 196, 245);
+	--border-radius: 6px;
 	--gradient-1: rgb(248, 223, 206);
 	--gradient-2: rgb(227, 178, 191);
 	--gradient-3: rgb(197, 138, 172);
@@ -25,4 +26,5 @@
 		var(--gradient-10),
 		transparent
 	);
+
 }

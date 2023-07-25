@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 
-import CloseButton from '../primitives/CloseButton';
 import GlowTextBox from '../primitives/GlowTextBox';
 
 import { ReactComponent as ExternalLinkSVG } from '../../svg/icons8-external-link.svg';
+import { ReactComponent as CloseSVG} from '../../svg/icons8-close.svg';
 
 export default function ProjectCard({
 	image,
@@ -31,7 +31,7 @@ export default function ProjectCard({
 				onClick();
 				setTimeout(
 					() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-					40
+					600
 				);
 			}}
 			onMouseEnter={() => {
@@ -43,12 +43,12 @@ export default function ProjectCard({
 			style={{
 				padding: 0,
 				margin: '3px',
-				border: '2px solid var(--gradient-6)',
 				borderRadius: '6px',
 				overflow: 'clip',
 				display: 'grid',
 				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
-				minHeight: 'fit-content',
+				transition: '500ms',
+				minHeight: expanded? '96vh': '300px',
 				height: expanded? 'auto': '300px'
 			}}>
 			{/* Background image */}
@@ -56,6 +56,7 @@ export default function ProjectCard({
 				style={{
 					backgroundImage: `url(${image})`,
 					backgroundSize: 'cover',
+					backgroundPosition: 'center',
 					transition: 'inherit',
 					filter: `brightness(${expanded ? 0.3 : 0.6})`,
 					gridColumn: 1,
@@ -81,17 +82,19 @@ export default function ProjectCard({
 						width: '100%',
 						justifyContent: 'space-between',
 					}}>
-					<CloseButton
+					<CloseSVG
 						onClick={() => {
 							onClick();
 							setTimeout(
 								() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-								40
+								600
 							);
 						}}
+						className='icon'
 						style={{
 							opacity: expanded ? 1 : 0,
 							transition: '200ms',
+							cursor: 'pointer'
 						}}
 					/>
 					{title && (
@@ -131,7 +134,10 @@ export default function ProjectCard({
 										alignItems: 'center',
 									}}>
 									{e.name}
-									<ExternalLinkSVG />
+									<ExternalLinkSVG style={{
+										height: '19px',
+										width: '19px'
+									}}/>
 								</a>
 							</GlowTextBox>
 						))}

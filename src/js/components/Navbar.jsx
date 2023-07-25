@@ -12,17 +12,6 @@ export default function Navbar({ style }) {
 		setVis(e.matches);
 		setOpen(false);
 	});
-
-	const hoverProps = {
-		onMouseOver: (e) => {
-			e.target.style.color = 'var(--on-hover)';
-			e.target.style.transform = 'translate(0,-2px)';
-		},
-		onMouseLeave: (e) => {
-			e.target.style.color = 'inherit';
-			e.target.style.transform = 'none';
-		},
-	};
 	const closeDrawerProps = {
 		onClick: ()=>{
 			setOpen(false);
@@ -56,7 +45,6 @@ export default function Navbar({ style }) {
 				to='/'
 				className='title'
 				style={{ ...childStyle, ...linkStyle }}
-				{...hoverProps}
 				{...closeDrawerProps}>
 				Ethan Lindsey
 			</Link>
@@ -76,7 +64,7 @@ export default function Navbar({ style }) {
 				<Link
 					to='/projects'
 					style={{ ...childStyle, ...linkStyle }}
-					{...hoverProps}
+					className='blue-hover'
 					{...closeDrawerProps}>
 					Projects
 				</Link>
@@ -85,14 +73,14 @@ export default function Navbar({ style }) {
 					rel='noopener noreferrer'
 					target='_blank'
 					style={{ ...childStyle, ...linkStyle }}
-					{...hoverProps}
+					className='blue-hover'
 					{...closeDrawerProps}>
 					Resume
 				</a>
 				<Link
 					to='/contact'
 					style={{ ...childStyle, ...linkStyle }}
-					{...hoverProps}
+					className='blue-hover'
 					{...closeDrawerProps}>
 					Contact Me
 				</Link>
