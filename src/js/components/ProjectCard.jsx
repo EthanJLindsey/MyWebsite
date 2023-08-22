@@ -48,8 +48,8 @@ export default function ProjectCard({
 				display: 'grid',
 				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
 				transition: '500ms',
-				minHeight: expanded? '96vh': '300px',
-				height: expanded? 'auto': '300px'
+				minHeight: expanded? '96vh': '400px',
+				height: expanded? 'auto': '400px'
 			}}>
 			{/* Background image */}
 			<div
