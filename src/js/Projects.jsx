@@ -56,7 +56,7 @@ export default function Projects() {
 			links: [
 				{
 					name: 'GitHub',
-					link: 'https://github.com/EthanJLindsey/Portfolio-Website',
+					link: 'https://github.com/EthanJLindsey/MyWebsite',
 				},
 			],
 		},
