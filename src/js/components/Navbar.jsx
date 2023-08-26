@@ -1,22 +1,19 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import $ from 'jquery';
 
 import DrawerButton from '../primitives/DrawerButton';
+import { useWindowWidth } from '../data/listeners';
 
-export default function Navbar({ style }) {
-	const [vis, setVis] = useState($(window).width() < 700);
+export default function Navbar({ refs, style }) {
+	const maxWidth = useWindowWidth();
+
+	const vis = maxWidth <= 700;
 	const [open, setOpen] = useState(false);
 
-	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
-		setVis(e.matches);
-		setOpen(false);
-	});
 	const closeDrawerProps = {
-		onClick: ()=>{
+		onClick: () => {
 			setOpen(false);
-		}
-	}
+		},
+	};
 	const linkStyle = {
 		transition: '200ms',
 	};
@@ -41,13 +38,15 @@ export default function Navbar({ style }) {
 					active={open}
 				/>
 			)}
-			<Link
-				to='/'
+			<div
 				className='title'
 				style={{ ...childStyle, ...linkStyle }}
-				{...closeDrawerProps}>
+				onClick={() => {
+					refs['home'].current?.scrollIntoView({ behavior: 'smooth' });
+					setOpen(false);
+				}}>
 				Ethan Lindsey
-			</Link>
+			</div>
 			{/* Right side items */}
 			<div
 				style={{
@@ -61,13 +60,15 @@ export default function Navbar({ style }) {
 					alignItems: vis && 'center',
 					justifyContent: !vis && 'flex-end',
 				}}>
-				<Link
-					to='/projects'
+				<div
 					style={{ ...childStyle, ...linkStyle }}
 					className='blue-hover'
-					{...closeDrawerProps}>
+					onClick={() => {
+						refs['projects'].current?.scrollIntoView({ behavior: 'smooth' });
+						setOpen(false);
+					}}>
 					Projects
-				</Link>
+				</div>
 				<a
 					href='/Resume.pdf'
 					rel='noopener noreferrer'
@@ -77,13 +78,15 @@ export default function Navbar({ style }) {
 					{...closeDrawerProps}>
 					Resume
 				</a>
-				<Link
-					to='/contact'
+				<div
 					style={{ ...childStyle, ...linkStyle }}
 					className='blue-hover'
-					{...closeDrawerProps}>
+					onClick={() => {
+						refs['contact'].current?.scrollIntoView({ behavior: 'smooth' });
+						setOpen(false);
+					}}>
 					Contact Me
-				</Link>
+				</div>
 			</div>
 		</nav>
 	);

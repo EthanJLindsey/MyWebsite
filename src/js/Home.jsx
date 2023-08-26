@@ -1,22 +1,10 @@
-// import { useState, useEffect } from 'react';
-
 import EducationCard from './components/EducationCard';
 import ExperienceCard from './components/ExperienceCard';
-import IconList from './components/IconList';
 
 import '../css/Home.css';
+import { forwardRef } from 'react';
 
-export default function Home() {
-	// const [education, setEd] = useState([]);
-	// const [experience, setEx] = useState([]);
-
-	// useEffect(() => {
-	// 	fetch('/education.json').then((j) => j.json().then((d) => setEd(d)));
-	// }, []);
-	// useEffect(() => {
-	// 	fetch('/experience.json').then((j) => j.json().then((d) => setEx(d)));
-	// }, []);
-
+const Home = forwardRef(({...rest}, ref) => {
 	const education = [
 		{
 			"location": "Iowa State University",
@@ -45,8 +33,7 @@ export default function Home() {
 	];
 
 	return (
-		<section className='home-content'>
-			<IconList />
+		<section className='home-content' ref={ref}>
 			{/* Title Card */}
 			<div className='introduction' style={{
 				height: '90vh',
@@ -80,4 +67,6 @@ export default function Home() {
 			))}
 		</section>
 	);
-}
+});
+
+export default Home;

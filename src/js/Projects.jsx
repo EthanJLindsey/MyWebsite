@@ -1,15 +1,9 @@
-import { /*useEffect,*/ useState } from 'react';
+import { /*useEffect,*/ forwardRef, useState } from 'react';
 import ProjectCard from './components/ProjectCard';
-import IconList from './components/IconList';
 import '../css/Projects.css';
 
-export default function Projects() {
+const Projects = forwardRef(({...rest}, ref) => {
 	const [expanded, setExpanded] = useState(-1);
-	// const [data, setData] = useState([]);
-
-	// useEffect(() => {
-	// 	fetch('/projects.json').then((j) => j.json().then((d) => setData(d)));
-	// }, []);
 
 	const data = [
 		{
@@ -63,8 +57,8 @@ export default function Projects() {
 	];
 
 	return (
-		<div className='project-content'>
-			<IconList />
+		<div className='project-content' ref={ref}>
+			<h2>Projects</h2>
 			<div className='project-list'>
 				{data.map((item, index) => (
 					<ProjectCard
@@ -77,4 +71,6 @@ export default function Projects() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default Projects;
