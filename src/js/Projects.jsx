@@ -2,7 +2,7 @@ import { /*useEffect,*/ forwardRef, useState } from 'react';
 import ProjectCard from './components/ProjectCard';
 import '../css/Projects.css';
 
-const Projects = forwardRef(({...rest}, ref) => {
+const Projects = forwardRef(({ ...rest }, ref) => {
 	const [expanded, setExpanded] = useState(-1);
 
 	const data = [
@@ -57,8 +57,13 @@ const Projects = forwardRef(({...rest}, ref) => {
 	];
 
 	return (
-		<div className='project-content' ref={ref}>
-			<h2>Projects</h2>
+		<div
+			className='project-content'
+			ref={ref}>
+			<h2 style={{
+				paddingTop: '50px',
+				paddingBottom: '20px'
+			}}>Projects</h2>
 			<div className='project-list'>
 				{data.map((item, index) => (
 					<ProjectCard

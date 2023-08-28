@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import GlowTextBox from '../primitives/GlowTextBox';
 
 import { ReactComponent as ExternalLinkSVG } from '../../svg/icons8-external-link.svg';
-import { ReactComponent as CloseSVG} from '../../svg/icons8-close.svg';
+import { ReactComponent as CloseSVG } from '../../svg/icons8-close.svg';
 
 export default function ProjectCard({
 	image,
@@ -15,8 +15,12 @@ export default function ProjectCard({
 	onClick,
 }) {
 	const [hover, setHover] = useState(false);
-	const [mobile, setMobile] = useState(window.matchMedia('(max-width: 700px)').matches);
-	const ref = useRef();
+	const [mobile, setMobile] = useState(
+		window.matchMedia('(max-width: 700px)').matches
+	);
+
+	const scrollRef = useRef();
+	const sizeRef = useRef();
 
 	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
 		setMobile(e.matches);
@@ -24,14 +28,18 @@ export default function ProjectCard({
 
 	return (
 		<div
-			ref={ref}
+			ref={scrollRef}
 			onClick={() => {
 				if (expanded) return;
 				setHover(false);
 				onClick();
 				setTimeout(
-					() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-					600
+					() =>
+						scrollRef.current.scrollIntoView({
+							behavior: 'smooth',
+							block: 'center',
+						}),
+					100
 				);
 			}}
 			onMouseEnter={() => {
@@ -46,10 +54,7 @@ export default function ProjectCard({
 				borderRadius: '6px',
 				overflow: 'clip',
 				display: 'grid',
-				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
-				transition: '500ms',
-				minHeight: expanded? '96vh': '400px',
-				height: expanded? 'auto': '400px'
+				flex: `1 0 ${expanded ? '99%' : '250px'}`,
 			}}>
 			{/* Background image */}
 			<div
@@ -62,7 +67,7 @@ export default function ProjectCard({
 					gridColumn: 1,
 					gridRow: 1,
 				}}
-				/>
+			/>
 			{/* Content */}
 			<div
 				style={{
@@ -74,6 +79,9 @@ export default function ProjectCard({
 					flexDirection: 'column',
 					justifyContent: 'space-between',
 					alignItems: 'center',
+					maxHeight: expanded? 'initial': '200px',
+					animationName: expanded ? 'growHeight' : '',
+					animationDuration: expanded ? '2s' : '',
 				}}>
 				<header
 					style={{
@@ -86,26 +94,30 @@ export default function ProjectCard({
 						onClick={() => {
 							onClick();
 							setTimeout(
-								() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-								600
+								() =>
+									scrollRef.current.scrollIntoView({
+										behavior: 'smooth',
+										block: 'center',
+									}),
+								100
 							);
 						}}
 						className='icon'
 						style={{
 							opacity: expanded ? 1 : 0,
 							transition: '200ms',
-							cursor: 'pointer'
+							cursor: 'pointer',
 						}}
 					/>
 					{title && (
-						<h2
+						<h3
 							style={{
 								transition: '200ms',
-								transform: hover ? 'translate(2px,2px)' : 'initial',
-								color: hover ? 'var(--on-hover)' : 'inherit',
+								transform: hover ? 'translate(-2px,2px)' : 'initial',
+								color: hover ? 'var(--hover-color)' : 'inherit',
 							}}>
 							{title}
-						</h2>
+						</h3>
 					)}
 				</header>
 
@@ -134,10 +146,12 @@ export default function ProjectCard({
 										alignItems: 'center',
 									}}>
 									{e.name}
-									<ExternalLinkSVG style={{
-										height: '19px',
-										width: '19px'
-									}}/>
+									<ExternalLinkSVG
+										style={{
+											height: '19px',
+											width: '19px',
+										}}
+									/>
 								</a>
 							</GlowTextBox>
 						))}
@@ -146,12 +160,13 @@ export default function ProjectCard({
 
 				{/* TODO fades in but cuts out */}
 				<p
+					ref={sizeRef}
 					style={{
 						opacity: expanded ? 1 : 0,
-						fontSize: '20px',
-						flex: `1 1 ${expanded? 'fit-content': 0}`,
+						fontSize: '18px',
 						overflow: 'hidden',
-						width: mobile? '100%': '80%',
+						width: mobile ? '100%' : '80%',
+						flex: '1',
 					}}>
 					{description}
 				</p>

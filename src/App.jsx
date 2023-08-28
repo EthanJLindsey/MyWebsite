@@ -13,7 +13,7 @@ export default function App() {
 	const refs = {
 		home: useRef(null),
 		projects: useRef(null),
-		contact: useRef(null)
+		contact: useRef(null),
 	};
 	return (
 		<div className='App'>
@@ -25,11 +25,13 @@ export default function App() {
 					justifyContent: 'flex-start',
 					minHeight: '100vh',
 				}}>
-				<Navbar refs={refs} style={{ width: '100%' }} />
-				<IconList/>
-				<Home ref={refs['home']}/>
-				<Projects ref={refs['projects']}/>
-				<Contact ref={refs['contact']}/>
+				<Navbar
+					refs={refs}
+				/>
+				<IconList />
+				<Home ref={refs['home']} />
+				<Projects ref={refs['projects']} />
+				<Contact ref={refs['contact']} />
 				<MyFooter />
 			</GlowWrapper>
 		</div>
