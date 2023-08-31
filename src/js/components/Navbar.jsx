@@ -29,6 +29,8 @@ export default function Navbar({ refs, style }) {
 				style={{
 					width: '100%',
 					position: 'fixed',
+					top: '0px',
+					left: '0px',
 					display: 'flex',
 					alignItems: 'center',
 					flexDirection: 'row',

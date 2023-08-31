@@ -8,8 +8,12 @@ import GlowWrapper from './js/components/GlowWrapper';
 import MyFooter from './js/components/MyFooter';
 import IconList from './js/components/IconList';
 import { useRef } from 'react';
+import Education from './js/Education';
+import Experience from './js/Experience';
+import { useWindowWidth } from './js/data/listeners';
 
 export default function App() {
+	const width = useWindowWidth();
 	const refs = {
 		home: useRef(null),
 		projects: useRef(null),
@@ -24,14 +28,40 @@ export default function App() {
 					alignItems: 'center',
 					justifyContent: 'flex-start',
 					minHeight: '100vh',
+					padding: '5px'
 				}}>
-				<Navbar
-					refs={refs}
-				/>
+				<Navbar refs={refs} />
 				<IconList />
-				<Home ref={refs['home']} />
-				<Projects ref={refs['projects']} />
-				<Contact ref={refs['contact']} />
+				<Home
+					ref={refs['home']}
+					style={{
+						maxWidth: width > 700 ?'calc(100% - 100px)': '',
+					}}
+				/>
+				<Education
+					style={{
+						maxWidth: width > 700 ?'calc(100% - 100px)': '',
+						width: '100%'
+					}}
+					/>
+				<Experience
+					style={{
+						maxWidth: width > 700 ?'calc(100% - 100px)': '',
+						width: '100%'
+					}}
+				/>
+				<Projects
+					ref={refs['projects']}
+					style={{
+						maxWidth: width > 700 ?'calc(100% - 100px)': '',
+					}}
+				/>
+				<Contact
+					ref={refs['contact']}
+					style={{
+						maxWidth: width > 700 ?'calc(100% - 100px)': '',
+					}}
+				/>
 				<MyFooter />
 			</GlowWrapper>
 		</div>

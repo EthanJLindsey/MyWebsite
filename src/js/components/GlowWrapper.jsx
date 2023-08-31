@@ -3,7 +3,7 @@ import { useWindowHeight, useWindowWidth } from '../data/listeners';
 
 export default function GlowWrapper({ children, style, ...rest }) {
 	const maxWidth = useWindowWidth();
-	const maxHeight = useWindowHeight()
+	const maxHeight = useWindowHeight();
 
 	const [x, setX] = useState(125);
 	const [y, setY] = useState(125);
@@ -24,17 +24,17 @@ export default function GlowWrapper({ children, style, ...rest }) {
 		<div
 			style={{
 				display: 'grid',
-				overflow: 'hidden'
-			}}>
-			<div 
-			style={{
-				width: '100vw',
-				height: '100vh',
 				overflow: 'hidden',
-				position: 'fixed',
-				gridColumn: 1,
-				gridRow: 1,
 			}}>
+			<div
+				style={{
+					width: '100vw',
+					height: '100vh',
+					overflow: 'hidden',
+					position: 'fixed',
+					gridColumn: 1,
+					gridRow: 1,
+				}}>
 				<div
 					style={{
 						position: 'relative',
@@ -49,7 +49,12 @@ export default function GlowWrapper({ children, style, ...rest }) {
 				/>
 			</div>
 			<div
-				style={{ ...style, gridColumn: 1, gridRow: 1, zIndex: 0 }}
+				style={{
+					...style,
+					gridColumn: 1,
+					gridRow: 1,
+					zIndex: 0,
+				}}
 				{...rest}>
 				{children}
 			</div>

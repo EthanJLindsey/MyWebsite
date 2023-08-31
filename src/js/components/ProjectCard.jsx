@@ -37,9 +37,9 @@ export default function ProjectCard({
 					() =>
 						scrollRef.current.scrollIntoView({
 							behavior: 'smooth',
-							block: 'center',
+							// block: 'center',
 						}),
-					100
+					200
 				);
 			}}
 			onMouseEnter={() => {
@@ -63,7 +63,7 @@ export default function ProjectCard({
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					transition: 'inherit',
-					filter: `brightness(${expanded ? 0.3 : 0.6})`,
+					filter: `brightness(${expanded ? 0.3 : 0.7})`,
 					gridColumn: 1,
 					gridRow: 1,
 				}}
@@ -97,9 +97,9 @@ export default function ProjectCard({
 								() =>
 									scrollRef.current.scrollIntoView({
 										behavior: 'smooth',
-										block: 'center',
+										// block: 'center',
 									}),
-								100
+								200
 							);
 						}}
 						className='icon'
