@@ -2,6 +2,7 @@
 @import 'Background.css';
 @import 'Hover.css';
 @import 'Animation.css';
+@import 'Display.css';
 
 .App {
 	font-family: 'Trebuchet MS';

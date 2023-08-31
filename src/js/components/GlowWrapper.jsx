@@ -25,6 +25,7 @@ export default function GlowWrapper({ children, style, ...rest }) {
 			style={{
 				display: 'grid',
 				overflow: 'hidden',
+				gridTemplateColumns: '100%'
 			}}>
 			<div
 				style={{

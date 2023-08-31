@@ -28,6 +28,7 @@ export default function App() {
 					alignItems: 'center',
 					justifyContent: 'flex-start',
 					minHeight: '100vh',
+					maxWidth: '100vw',
 					padding: '5px'
 				}}>
 				<Navbar refs={refs} />
