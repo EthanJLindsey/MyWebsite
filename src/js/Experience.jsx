@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ExperienceCard from "./components/ExperienceCard";
 
 const Experience = ({style}) => {
@@ -19,6 +20,7 @@ const Experience = ({style}) => {
 			"description": "The Exam Accomodations Center provides tools to students to overcome the mental and physical barriers of taking exams and quizzes. My responsibilities included answering the phone, monitoring the testing room, issuing out exams, and managing files and records. During our down time, I stayed productive by cleaning and organizing the files, cabinents, and office supplies, totaling 30+ hours of additional work. Through this cleaning I increased our storage by identifying and throwing away expired items, and I doubled our stock of office supplies by pooling together items that were previously hidden by the clutter. I was also able to catch a critical scheduling error for our finals that would have otherwise been disasterous."
 		}
 	];
+	const [expanded, setExpanded] = useState(-1);
 	return (
 		<div style={style}>
 			<h3>Experience</h3>
@@ -31,6 +33,10 @@ const Experience = ({style}) => {
 					startDate={e.startDate}
 					endDate={e.endDate}
 					description={e.description}
+					expanded={expanded === i}
+					onClick={()=>{
+						setExpanded(expanded === i? -1: i);
+					}}
 				/>
 			))}
 		</div>

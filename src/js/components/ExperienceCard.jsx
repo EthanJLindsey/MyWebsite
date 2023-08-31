@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import '../../css/components/ExperienceCard.css';
 import Separator from '../primitives/Separator';
 import ExpandButton from '../primitives/ExpandButton';
@@ -10,8 +10,9 @@ export default function ExperienceCard({
 	startDate,
 	endDate,
 	description,
+	expanded,
+	onClick,
 }) {
-	const [expand, setExpand] = useState(false);
 	const ref = useRef();
 	return (
 		<div className='experience-card'>
@@ -25,18 +26,18 @@ export default function ExperienceCard({
 					{location} - {department}
 				</h4>
 				<h5>{title}</h5>
-				<div style={{display:'flex'}}>
+				<div style={{ display: 'flex' }}>
 					<ExpandButton
-						onClick={() => setExpand(!expand)}
-						active={expand}
+						onClick={onClick}
+						active={expanded}
 					/>
-					&nbsp;Show {expand? 'less': 'more'}
+					&nbsp; Show {expanded ? 'less' : 'more'}
 				</div>
 				<div
 					style={{
-						height: expand ? ref.current.clientHeight : '0px',
+						height: expanded ? ref.current.clientHeight : '0px',
 						overflow: 'hidden',
-						transition: '400ms'
+						transition: '400ms',
 					}}>
 					<p ref={ref}>{description}</p>
 				</div>
