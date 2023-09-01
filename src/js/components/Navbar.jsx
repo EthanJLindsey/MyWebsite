@@ -35,7 +35,7 @@ export default function Navbar({ refs, style }) {
 					alignItems: 'center',
 					flexDirection: 'row',
 					flexWrap: 'wrap',
-					zIndex: 5,
+					zIndex: 1,
 					backdropFilter: 'blur(7px)',
 					backgroundColor: 'rgb(128,128,128,.1)',
 					borderBottom: '2px solid rgb(128,128,128,.2)'

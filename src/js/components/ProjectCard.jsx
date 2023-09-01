@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import GlowTextBox from '../primitives/GlowTextBox';
 
@@ -18,7 +18,21 @@ export default function ProjectCard({
 }) {
 	const [hover, setHover] = useState(false);
 	const hiddenContentRef = useRef();
-	const hiddenContentWidth = hiddenContentRef.current?.height;
+
+	useEffect(() => {
+		if (!hiddenContentRef.current) return;
+		const {current} = hiddenContentRef;
+		const resizeObserver = new ResizeObserver(() => {
+			setHiddenHeight(current.clientHeight);
+		});
+		resizeObserver.observe(current);
+		return () => resizeObserver.disconnect();
+	}, []);
+
+
+	const [hiddenHeight, setHiddenHeight] = useState();
+
+
 
 	return (
 		<div
@@ -41,6 +55,7 @@ export default function ProjectCard({
 				display: 'grid',
 				gridTemplateColumns: '100%',
 				flex: `1 0 ${expanded ? '99%' : '250px'}`,
+				transition: '500ms'
 			}}>
 			{/* Background image */}
 			<div
@@ -52,6 +67,7 @@ export default function ProjectCard({
 					filter: `brightness(${expanded ? 0.3 : 0.7})`,
 					gridColumn: 1,
 					gridRow: 1,
+					zIndex: -1
 				}}
 			/>
 			{/* Content */}
@@ -59,7 +75,6 @@ export default function ProjectCard({
 				style={{
 					gridColumn: '1',
 					gridRow: '1',
-					zIndex: 1,
 					padding: '10px',
 					display: 'flex',
 					flexDirection: 'column',
@@ -67,8 +82,6 @@ export default function ProjectCard({
 					alignItems: 'center',
 					minHeight: '200px',
 					maxWidth: '100%',
-					animationName: expanded ? 'growHeight' : '',
-					animationDuration: expanded ? '2s' : '',
 				}}>
 				<header
 					style={{
@@ -103,14 +116,15 @@ export default function ProjectCard({
 				{/* All Hidden Content */}
 				<div
 					style={{
-						height: expanded ? hiddenContentWidth : 0,
+						height: expanded ? `${hiddenHeight}px` : 0,
+						transition: '500ms',
 						opacity: expanded ? 1: 0,
 						maxWidth: 'inherit',
-						transition: '500ms',
 						overflow: 'hidden',
 					}}>
 					{/* Used to get size of all hidden content */}
-					<div ref={hiddenContentRef}>
+					<div ref={hiddenContentRef}
+					>
 						{/* Links section */}
 						{links && (
 							<div

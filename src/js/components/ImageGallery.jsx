@@ -1,10 +1,8 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import ImageView from './ImageView';
 
 const ImageGallery = ({ images, style }) => {
 	const [active, setActive] = useState(0);
-
-	const activeRef = useRef();
-	// activeRef.current?.scrollIntoView({behavior: 'smooth'});
 
 	return (
 		<div
@@ -16,17 +14,14 @@ const ImageGallery = ({ images, style }) => {
 				alignItems: 'center',
 				overflowY: 'hidden',
 				overflowX: 'scroll',
-				scrollbarWidth: 'none',
-				msOverflowStyle: 'none',
 			}}>
 			{images?.map((item, index) => {
 				return (
-					<img
+					<ImageView
 						key={index}
-						ref={index === active ? activeRef : null}
+						onMouseOver={() => setActive(index)}
 						alt=''
 						src={item}
-						onMouseOver={() => setActive(index)}
 						style={{
 							height: '90%',
 							margin: '4px',

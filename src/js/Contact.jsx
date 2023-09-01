@@ -19,11 +19,12 @@ async function f() {
 	$('#input-text').val('');
 }
 
-const Contact = forwardRef(({ ...rest }, ref) => {
+const Contact = forwardRef(({ style, ...rest }, ref) => {
 	return (
 		<div
 			ref={ref}
 			style={{
+				...style,
 				display: 'flex',
 				flexWrap: 'wrap',
 				alignItems: 'center',
@@ -47,7 +48,7 @@ const Contact = forwardRef(({ ...rest }, ref) => {
 					id='input-text'
 					rows='5'
 					style={{
-						width: '300px',
+						width: 'calc(min(300px,100%))',
 						height: '150px',
 					}}
 				/>
