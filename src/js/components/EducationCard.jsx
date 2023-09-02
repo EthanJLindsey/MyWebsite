@@ -6,7 +6,7 @@ export default function EducationCard({ location, degree, gpa, date }) {
 			<div className='date'>{date}</div>
 			<div style={{
 				backgroundColor: 'white',
-				width: '1px',
+				flex: '0 0 1px',
 				height: '100%',
 				marginLeft: '10px',
 				marginRight: '10px'

@@ -44,7 +44,7 @@ export default function ExperienceCard({
 			<div
 				style={{
 					backgroundColor: 'white',
-					width: '1px',
+					flex: '0 0 1px',
 					height: '100%',
 					marginLeft: '10px',
 					marginRight: '10px',
