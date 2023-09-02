@@ -1,38 +1,45 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import GlowTextBox from '../primitives/GlowTextBox';
 
 import { ReactComponent as ExternalLinkSVG } from '../../svg/icons8-external-link.svg';
-import { ReactComponent as CloseSVG} from '../../svg/icons8-close.svg';
+import { ReactComponent as CloseSVG } from '../../svg/icons8-close.svg';
+import ImageGallery from './ImageGallery';
 
 export default function ProjectCard({
-	image,
+	backgroundImage,
 	title,
 	description,
 	tags,
 	links,
 	expanded,
 	onClick,
+	images,
 }) {
 	const [hover, setHover] = useState(false);
-	const [mobile, setMobile] = useState(window.matchMedia('(max-width: 700px)').matches);
-	const ref = useRef();
+	const hiddenContentRef = useRef();
 
-	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
-		setMobile(e.matches);
-	});
+	useEffect(() => {
+		if (!hiddenContentRef.current) return;
+		const {current} = hiddenContentRef;
+		const resizeObserver = new ResizeObserver(() => {
+			setHiddenHeight(current.clientHeight);
+		});
+		resizeObserver.observe(current);
+		return () => resizeObserver.disconnect();
+	}, []);
+
+
+	const [hiddenHeight, setHiddenHeight] = useState();
+
+
 
 	return (
 		<div
-			ref={ref}
 			onClick={() => {
 				if (expanded) return;
 				setHover(false);
 				onClick();
-				setTimeout(
-					() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-					600
-				);
 			}}
 			onMouseEnter={() => {
 				if (!expanded) setHover(true);
@@ -46,34 +53,35 @@ export default function ProjectCard({
 				borderRadius: '6px',
 				overflow: 'clip',
 				display: 'grid',
-				flex: `1 1 ${expanded ? '95vw' : '350px'}`,
-				transition: '500ms',
-				minHeight: expanded? '96vh': '400px',
-				height: expanded? 'auto': '400px'
+				gridTemplateColumns: '100%',
+				flex: `1 0 ${expanded ? '99%' : '250px'}`,
+				transition: '500ms'
 			}}>
 			{/* Background image */}
 			<div
 				style={{
-					backgroundImage: `url(${image})`,
+					backgroundImage: `url(${backgroundImage})`,
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					transition: 'inherit',
-					filter: `brightness(${expanded ? 0.3 : 0.6})`,
+					filter: `brightness(${expanded ? 0.3 : 0.7})`,
 					gridColumn: 1,
 					gridRow: 1,
+					zIndex: -1
 				}}
-				/>
+			/>
 			{/* Content */}
 			<div
 				style={{
 					gridColumn: '1',
 					gridRow: '1',
-					zIndex: 1,
 					padding: '10px',
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'space-between',
 					alignItems: 'center',
+					minHeight: '200px',
+					maxWidth: '100%',
 				}}>
 				<header
 					style={{
@@ -85,76 +93,85 @@ export default function ProjectCard({
 					<CloseSVG
 						onClick={() => {
 							onClick();
-							setTimeout(
-								() => ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
-								600
-							);
 						}}
 						className='icon'
 						style={{
 							opacity: expanded ? 1 : 0,
 							transition: '200ms',
-							cursor: 'pointer'
+							cursor: 'pointer',
 						}}
 					/>
 					{title && (
-						<h2
+						<h3
 							style={{
 								transition: '200ms',
-								transform: hover ? 'translate(2px,2px)' : 'initial',
-								color: hover ? 'var(--on-hover)' : 'inherit',
+								transform: hover ? 'translate(-2px,2px)' : 'initial',
+								color: hover ? 'var(--hover-color)' : 'inherit',
 							}}>
 							{title}
-						</h2>
+						</h3>
 					)}
 				</header>
 
-				{/* Links section */}
-				{links && (
-					<div
-						style={{
-							width: '100%',
-							display: 'flex',
-							padding: '10px',
-							flex: `0 1 ${expanded ? 'auto' : 0}`,
-							justifyContent: 'flex-end',
-							opacity: expanded ? 1 : 0,
-							// height: expanded ? 'auto' : 0,
-							transition: '200ms',
-							overflow: 'hidden',
-						}}>
-						{links.map((e, i) => (
-							<GlowTextBox key={i}>
-								<a
-									href={e.link}
-									rel='noopener noreferrer'
-									target='_blank'
-									style={{
-										display: 'flex',
-										alignItems: 'center',
-									}}>
-									{e.name}
-									<ExternalLinkSVG style={{
-										height: '19px',
-										width: '19px'
-									}}/>
-								</a>
-							</GlowTextBox>
-						))}
-					</div>
-				)}
-
-				{/* TODO fades in but cuts out */}
-				<p
+				{/* All Hidden Content */}
+				<div
 					style={{
-						opacity: expanded ? 1 : 0,
-						fontSize: '20px',
-						flex: `1 1 ${expanded? 'fit-content': 0}`,
+						height: expanded ? `${hiddenHeight}px` : 0,
+						transition: '500ms',
+						opacity: expanded ? 1: 0,
+						maxWidth: 'inherit',
 						overflow: 'hidden',
-						width: mobile? '100%': '80%',
+						marginTop: '10px',
+						marginBottom: '10px',
 					}}>
-					{description}
-				</p>
+					{/* Used to get size of all hidden content */}
+					<div ref={hiddenContentRef}
+					>
+						{/* Links section */}
+						{links && (
+							<div
+								style={{
+									display: 'flex',
+									padding: '10px',
+									justifyContent: 'flex-end',
+									overflow: 'hidden',
+								}}>
+								{links.map((e, i) => (
+									<GlowTextBox key={i}>
+										<a
+											href={e.link}
+											rel='noopener noreferrer'
+											target='_blank'
+											style={{
+												display: 'flex',
+												alignItems: 'center',
+											}}>
+											{e.name}
+											<ExternalLinkSVG
+												style={{
+													height: '19px',
+													width: '19px',
+												}}
+											/>
+										</a>
+									</GlowTextBox>
+								))}
+							</div>
+						)}
+						{/* TODO fades in but cuts out */}
+						<p
+							style={{
+								fontSize: '18px',
+								flex: '1',
+								marginTop: 0
+							}}>
+							{description}
+						</p>
+						{images && <ImageGallery images={images} style={{
+							margin: '5px'
+						}}/>}
+					</div>
+				</div>
 
 				{/* Tags section */}
 				<div

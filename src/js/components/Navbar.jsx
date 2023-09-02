@@ -1,90 +1,104 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import $ from 'jquery';
 
 import DrawerButton from '../primitives/DrawerButton';
+import { useWindowWidth } from '../data/listeners';
 
-export default function Navbar({ style }) {
-	const [vis, setVis] = useState($(window).width() < 700);
+export default function Navbar({ refs, style }) {
+	const maxWidth = useWindowWidth();
+
+	const vis = maxWidth <= 700;
 	const [open, setOpen] = useState(false);
 
-	window.matchMedia('(max-width: 700px)').addEventListener('change', (e) => {
-		setVis(e.matches);
-		setOpen(false);
-	});
 	const closeDrawerProps = {
-		onClick: ()=>{
+		onClick: () => {
 			setOpen(false);
-		}
-	}
+		},
+	};
 	const linkStyle = {
 		transition: '200ms',
+		cursor: 'pointer',
 	};
 	const childStyle = {
 		padding: '7px',
 		margin: 0,
 	};
 	return (
-		<nav
-			style={{
-				...style,
-				display: 'flex',
-				alignItems: 'center',
-				flexDirection: 'row',
-				flexWrap: 'wrap',
-			}}>
-			{/* Left side items */}
-			{vis && (
-				<DrawerButton
-					onClick={() => setOpen(!open)}
-					style={{ ...childStyle }}
-					active={open}
-				/>
-			)}
-			<Link
-				to='/'
-				className='title'
-				style={{ ...childStyle, ...linkStyle }}
-				{...closeDrawerProps}>
-				Ethan Lindsey
-			</Link>
-			{/* Right side items */}
-			<div
+		// outer div height used to space content below
+		<div style={{ width: '100%', height: '44px' }}>
+			<nav
 				style={{
-					flex: '1',
-					flexBasis: vis ? '100%' : 'fit-content',
-					overflow: 'hidden',
-					transition: '200ms',
-					height: vis ? (open ? '105.6px' : 0) : 'fit-content',
+					width: '100%',
+					position: 'fixed',
+					top: '0px',
+					left: '0px',
 					display: 'flex',
-					flexDirection: vis ? 'column' : 'row',
-					alignItems: vis && 'center',
-					justifyContent: !vis && 'flex-end',
+					alignItems: 'center',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					zIndex: 1,
+					backdropFilter: 'blur(7px)',
+					backgroundColor: 'rgb(128,128,128,.1)',
+					borderBottom: '2px solid rgb(128,128,128,.2)'
 				}}>
-				<Link
-					to='/projects'
+				{/* Left side items */}
+				{vis && (
+					<DrawerButton
+						onClick={() => setOpen(!open)}
+						style={{ ...childStyle }}
+						active={open}
+					/>
+				)}
+				<div
+					className='title'
 					style={{ ...childStyle, ...linkStyle }}
-					className='blue-hover'
-					{...closeDrawerProps}>
-					Projects
-				</Link>
-				<a
-					href='/Resume.pdf'
-					rel='noopener noreferrer'
-					target='_blank'
-					style={{ ...childStyle, ...linkStyle }}
-					className='blue-hover'
-					{...closeDrawerProps}>
-					Resume
-				</a>
-				<Link
-					to='/contact'
-					style={{ ...childStyle, ...linkStyle }}
-					className='blue-hover'
-					{...closeDrawerProps}>
-					Contact Me
-				</Link>
-			</div>
-		</nav>
+					onClick={() => {
+						refs['home'].current?.scrollIntoView({ behavior: 'smooth' });
+						setOpen(false);
+					}}>
+					Ethan Lindsey
+				</div>
+				{/* Right side items */}
+				<div
+					style={{
+						flex: '1',
+						flexBasis: vis ? '100%' : 'fit-content',
+						overflow: 'hidden',
+						transition: '200ms',
+						height: vis ? (open ? '105.6px' : 0) : 'fit-content',
+						display: 'flex',
+						flexDirection: vis ? 'column' : 'row',
+						alignItems: vis && 'center',
+						justifyContent: !vis && 'flex-end',
+					}}>
+					<div
+						style={{ ...childStyle, ...linkStyle }}
+						className='blue-hover'
+						onClick={() => {
+							refs['projects'].current?.scrollIntoView({ behavior: 'smooth' });
+							setOpen(false);
+						}}>
+						Projects
+					</div>
+					<a
+						href='/Resume.pdf'
+						rel='noopener noreferrer'
+						target='_blank'
+						style={{ ...childStyle, ...linkStyle }}
+						className='blue-hover'
+						{...closeDrawerProps}>
+						Resume
+					</a>
+					<div
+						style={{ ...childStyle, ...linkStyle }}
+						className='blue-hover'
+						onClick={() => {
+							refs['contact'].current?.scrollIntoView({ behavior: 'smooth' });
+							setOpen(false);
+						}}>
+						Contact Me
+					</div>
+				</div>
+			</nav>
+		</div>
 	);
 }

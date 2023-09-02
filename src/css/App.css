@@ -1,11 +1,13 @@
 @import 'Root.css';
 @import 'Background.css';
 @import 'Hover.css';
+@import 'Animation.css';
+@import 'Display.css';
 
 .App {
 	font-family: 'Trebuchet MS';
 	color: var(--on-primary);
-	background-color: var(--gradient-10);
+	background-color: var(--gradient-9);
 	max-width: 100vw;
 	min-height: 100vh;
 }

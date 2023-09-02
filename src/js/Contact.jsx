@@ -2,6 +2,7 @@ import { API, graphqlOperation } from 'aws-amplify';
 
 import { createMessage } from '../graphql/mutations';
 import $ from 'jquery';
+import { forwardRef } from 'react';
 
 async function f() {
 	const message = $('#input-text').val();
@@ -18,57 +19,19 @@ async function f() {
 	$('#input-text').val('');
 }
 
-export default function Contact() {
+const Contact = forwardRef(({ style, ...rest }, ref) => {
 	return (
 		<div
+			ref={ref}
 			style={{
+				...style,
 				display: 'flex',
 				flexWrap: 'wrap',
 				alignItems: 'center',
 				width: '90%',
+				paddingTop: '200px',
+				paddingBottom: '200px',
 			}}>
-			<div
-				style={{
-					flex: '1 1 350px',
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'center',
-					alignItems: 'center'
-				}}>
-				<h2>Contact Me</h2>
-				<ul
-					className='bright-background' style={{
-						padding: '5px',
-						borderRadius: 'var(--border-radius)'
-					}}>
-					<li>
-						Email&nbsp;
-						<a
-							href='mailto: ethan.james.lindsey@gmail.com'
-							style={{ color: 'inherit' }}>
-							ethan.james.lindsey@gmail.com
-						</a>
-					</li>
-					<li>
-						LinkedIn&nbsp;
-						<a
-							href='https://www.linkedin.com/in/ejlindseycs/'
-							rel='noopener noreferrer'
-							target='_blank'>
-							ejlindseycs
-						</a>
-					</li>
-					<li>
-						GitHub&nbsp;
-						<a
-							href='https://github.com/EthanJLindsey'
-							rel='noopener noreferrer'
-							target='_blank'>
-							EthanJLindsey
-						</a>
-					</li>
-				</ul>
-			</div>
 			<div
 				style={{
 					flex: '1 1 350px',
@@ -85,7 +48,7 @@ export default function Contact() {
 					id='input-text'
 					rows='5'
 					style={{
-						width: '300px',
+						width: 'calc(min(300px,100%))',
 						height: '150px',
 					}}
 				/>
@@ -97,4 +60,6 @@ export default function Contact() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default Contact;
