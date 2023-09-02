@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ImageView from './ImageView';
 
 const ImageGallery = ({ images, style }) => {
-	const [active, setActive] = useState(0);
+	const [active, setActive] = useState(-1);
 
 	return (
 		<div
@@ -19,15 +19,16 @@ const ImageGallery = ({ images, style }) => {
 				return (
 					<ImageView
 						key={index}
-						onMouseOver={() => setActive(index)}
+						onMouseEnter={() => setActive(index)}
+						onMouseLeave={()=> setActive(-1)}
 						alt=''
 						src={item}
 						style={{
 							height: '90%',
 							margin: '4px',
 							transition: '200ms',
+							borderRadius: '4px',
 							border: `2px solid ${active === index? 'var(--hover-color)': 'transparent'}`,
-							cursor: 'pointer',
 						}}
 					/>
 				);

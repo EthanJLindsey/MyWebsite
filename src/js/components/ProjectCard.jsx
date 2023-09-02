@@ -121,6 +121,8 @@ export default function ProjectCard({
 						opacity: expanded ? 1: 0,
 						maxWidth: 'inherit',
 						overflow: 'hidden',
+						marginTop: '10px',
+						marginBottom: '10px',
 					}}>
 					{/* Used to get size of all hidden content */}
 					<div ref={hiddenContentRef}
@@ -161,6 +163,7 @@ export default function ProjectCard({
 							style={{
 								fontSize: '18px',
 								flex: '1',
+								marginTop: 0
 							}}>
 							{description}
 						</p>

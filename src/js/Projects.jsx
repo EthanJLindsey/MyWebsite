@@ -11,6 +11,12 @@ const Projects = forwardRef(({ style, ...rest }, ref) => {
 			description:
 				'AntHill was my senior design team project of fall 2022 where we designed a social media application that connected users to collaborate on projects. I personally implemented ~60% of the final code. I resolved a critical security flaw where the login process downloaded , our entire user database to a malicious users device. We used Firebase, which is a cloud computing platform similar to AWS, where we could store our data and host our website. Note that our Firebase is no longer running after our graduation date.',
 			backgroundImage: '/images/anthill/anthill-code.png',
+			images: [
+				'images/anthill/anthill-blue-2048.png',
+				'images/anthill/anthill-profile-edit.png',
+				'images/anthill/anthill-profile.png',
+				'images/anthill/anthill-dashboard.png'
+			],
 			tags: [
 				'Flutter',
 				'Dart',
@@ -46,12 +52,6 @@ const Projects = forwardRef(({ style, ...rest }, ref) => {
 			description:
 				'I first created this website in early July of 2023. The objective of this website as a whole is to show how I can develop and deploy using technologies that I had little previous experience with. It is built using React and hosted on AWS amplify. The glowing sphere in the background is given randomized values for size, position, and speed using Javascript. I use AWS DynamoDB on the Amplify Console to store the messages sent using the text area on the Contact page. Media listeners are used to dynamically change the position and display of the webpage to make navigation smoother on mobile. All the previously mentioned functions were deployed just a couple weeks after starting the project.',
 			backgroundImage: '/images/my-website/website-home.png',
-			images: [
-				'/images/my-website/website-home.png',
-				'/images/my-website/website-home.png',
-				'/images/my-website/website-home.png',
-				'/images/my-website/website-home.png'
-			],
 			tags: ['React', 'AWS', 'Javascript', 'Personal Project', 'Website'],
 			links: [
 				{

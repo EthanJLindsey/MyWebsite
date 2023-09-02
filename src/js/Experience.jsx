@@ -4,8 +4,7 @@ import ExperienceCard from './components/ExperienceCard';
 const Experience = ({ style }) => {
 	const experience = [
 		{
-			location: 'Iowa State University',
-			department: 'Computer Science Help Room',
+			employer: 'Iowa State University',
 			title: 'Computer Science Tutor',
 			startDate: 'Jan 2022',
 			endDate: 'Dec 2022',
@@ -13,8 +12,7 @@ const Experience = ({ style }) => {
 				'I tutored students who were taking Computer Science courses. Our most common issues required a advanced understanding of data structures, algorithms, and debugging. Because of the stress that our clients sometimes felt, we also needed strong communication skills, listening skills, and conflict resolution skills. I covered courses that used a variety of technologies such as React, Node.js, C++, Python, and Java. Qualifying to be a tutor required strong grades and strong analytical skills to identify issues and solutions quickly after they are presented by our clients.',
 		},
 		{
-			location: 'Iowa State University',
-			department: 'Exam Accomodations Center',
+			employer: 'Iowa State University',
 			title: 'Exam Proctor',
 			startDate: 'Aug 2021',
 			endDate: 'Dec 2021',
@@ -35,12 +33,7 @@ const Experience = ({ style }) => {
 			{experience.map((e, i) => (
 				<ExperienceCard
 					key={i}
-					location={e.location}
-					department={e.department}
-					title={e.title}
-					startDate={e.startDate}
-					endDate={e.endDate}
-					description={e.description}
+					{...e}
 					expanded={expanded === i}
 					onClick={() => {
 						setExpanded(expanded === i ? -1 : i);
