@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import '../../css/components/ExperienceCard.css';
-import Separator from '../primitives/Separator';
 import ExpandButton from '../primitives/ExpandButton';
 
 export default function ExperienceCard({
@@ -18,7 +17,6 @@ export default function ExperienceCard({
 			style={{
 				display: 'flex',
 				justifyContent: 'flex-start',
-				alignItems: 'center',
 				width: '90%',
 			}}>
 			<div
@@ -38,7 +36,7 @@ export default function ExperienceCard({
 				<div
 					style={{
 						marginTop: '10px',
-						marginBottom: '10px',
+						// marginBottom: '10px',
 					}}>
 					{endDate}
 				</div>
@@ -46,15 +44,18 @@ export default function ExperienceCard({
 			<div
 				style={{
 					backgroundColor: 'white',
-					width: '1px',
+					flex: '0 0 1px',
 					height: '100%',
 					marginLeft: '10px',
 					marginRight: '10px',
 				}}
 			/>
-			<div>
-				<h4>{employer}</h4>
-				<h5>{title}</h5>
+			<div
+				style={{
+					marginTop: '10px',
+				}}>
+				<h4>{title}</h4>
+				<h5>{employer}</h5>
 				<div
 					style={{ display: 'flex', marginTop: '10px', marginBottom: '10px' }}>
 					<ExpandButton
@@ -69,7 +70,9 @@ export default function ExperienceCard({
 						overflow: 'hidden',
 						transition: '400ms',
 					}}>
-					<p ref={ref} style={{margin: 0}}>{description}</p>
+					<div ref={ref}>
+						<p style={{margin: 0}}>{description}</p>
+					</div>
 				</div>
 			</div>
 		</div>

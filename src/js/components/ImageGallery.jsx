@@ -27,7 +27,6 @@ const ImageGallery = ({ images, style }) => {
 							height: '90%',
 							margin: '4px',
 							transition: '200ms',
-							borderRadius: '4px',
 							border: `2px solid ${active === index? 'var(--hover-color)': 'transparent'}`,
 						}}
 					/>

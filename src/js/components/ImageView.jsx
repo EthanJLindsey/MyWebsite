@@ -6,51 +6,71 @@ const ImageView = ({ src, alt, style, ...rest }) => {
 	const [fullscreen, setFullscreen] = useState(false);
 
 	if (fullscreen) {
-		style.position = 'fixed';
-		style.width = '100vw';
-		style.height = '100vh';
+		style.border = null;
 	}
-
-	document.body.style.overflow = fullscreen? 'hidden': 'auto';
 
 	return (
 		<>
 			<img
 				src={src}
 				alt={alt}
-				onClick={() => setFullscreen(true)}
+				onClick={() => {
+					document.body.style.overflow = 'hidden';
+					setFullscreen(true);
+				}}
 				style={{
 					...style,
-					transition: null,
-					cursor: fullscreen ? '' : 'pointer',
-					position: fullscreen ? 'fixed' : null,
-					width: fullscreen ? '100vw' : null,
-					height: fullscreen ? '100vh' : '90%',
-					zIndex: fullscreen ? '30' : '',
-					objectFit: fullscreen? 'contain': '',
-					backdropFilter: fullscreen? 'brightness(.3) blur(2px)':'',
-					overflow: fullscreen? 'hidden': null,
+					cursor: 'pointer',
+					height: '90%',
+					borderRadius: '4px',
 					top: 0,
 					left: 0,
-					border: fullscreen? null: style.border,
-					margin: fullscreen? null: style.margin,
 				}}
 				{...rest}
 			/>
 			{fullscreen && (
-				<CloseSVG
-					onClick={() => {
-						setFullscreen(false);
-					}}
-					className='icon'
+				<>
+					<img
+					src={src}
+					alt={alt}
 					style={{
-						cursor: 'pointer',
+						...style,
+						cursor: null,
 						position: 'fixed',
-						zIndex: 31,
-						top: '0',
-						right: '0',
+						width: '100vw',
+						height: '100vh',
+						zIndex: '30',
+						objectFit: 'contain',
+						backdropFilter: 'brightness(.3) blur(2px)',
+						overflow: 'hidden',
+						borderRadius: null,
+						top: 0,
+						left: 0,
+						border: null,
+						margin: null,
 					}}
-				/>
+					{...rest}
+								/>
+					<CloseSVG
+						onClick={() => {
+							document.body.style.overflow = 'auto';
+							setFullscreen(false);
+						}}
+						className='icon'
+						style={{
+							cursor: 'pointer',
+							position: 'fixed',
+							fill: 'invert',
+							backgroundColor: 'rgb(0,0,0,.5)',
+							borderRadius: '4px',
+							zIndex: 31,
+							top: 0,
+							left: 0,
+							margin: '5px',
+							padding: '3px'
+						}}
+					/>
+				</>
 			)}
 		</>
 	);

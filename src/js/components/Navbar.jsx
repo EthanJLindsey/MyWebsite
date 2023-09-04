@@ -36,7 +36,7 @@ export default function Navbar({ refs, style }) {
 					flexDirection: 'row',
 					flexWrap: 'wrap',
 					zIndex: 1,
-					backdropFilter: 'blur(7px)',
+					backdropFilter: 'blur(7px) brightness(.8)',
 					backgroundColor: 'rgb(128,128,128,.1)',
 					borderBottom: '2px solid rgb(128,128,128,.2)'
 				}}>

@@ -54,7 +54,7 @@ export default function ProjectCard({
 				overflow: 'clip',
 				display: 'grid',
 				gridTemplateColumns: '100%',
-				flex: `1 0 ${expanded ? '99%' : '250px'}`,
+				flex: `1 1 ${expanded ? '900px' : '300px'}`,
 				transition: '500ms'
 			}}>
 			{/* Background image */}
@@ -151,6 +151,8 @@ export default function ProjectCard({
 												style={{
 													height: '19px',
 													width: '19px',
+													fill: 'var(--gradient-2)',
+													marginLeft: '4px'
 												}}
 											/>
 										</a>
@@ -179,7 +181,7 @@ export default function ProjectCard({
 						width: '100%',
 						flex: 0,
 						display: 'flex',
-						flexWrap: 'wrap',
+						flexWrap: 'wrap-reverse',
 						justifyContent: 'flex-end',
 						transition: '200ms',
 						transform: hover ? 'translate(-2px,-2px)' : 'initial',
