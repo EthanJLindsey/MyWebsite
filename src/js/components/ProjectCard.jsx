@@ -54,7 +54,7 @@ export default function ProjectCard({
 				overflow: 'clip',
 				display: 'grid',
 				gridTemplateColumns: '100%',
-				flex: `1 1 ${expanded ? '600px' : '250px'}`,
+				flex: `1 1 ${expanded ? '900px' : '300px'}`,
 				transition: '500ms'
 			}}>
 			{/* Background image */}

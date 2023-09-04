@@ -6,7 +6,7 @@ const Education = ({ style }) => {
 			location: 'Iowa State University',
 			date: 'Dec 2022',
 			degree:
-				"Bachelor's of Science in Computer Science; Minor in Music Technology",
+				"B.S. in Computer Science; Minor in Music Technology",
 			gpa: '3.91',
 		},
 	];

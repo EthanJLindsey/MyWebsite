@@ -50,11 +50,12 @@ export default function ExperienceCard({
 					marginRight: '10px',
 				}}
 			/>
-			<div style={{
-				marginTop: '10px'
-			}}>
-				<h4>{employer}</h4>
-				<h5>{title}</h5>
+			<div
+				style={{
+					marginTop: '10px',
+				}}>
+				<h4>{title}</h4>
+				<h5>{employer}</h5>
 				<div
 					style={{ display: 'flex', marginTop: '10px', marginBottom: '10px' }}>
 					<ExpandButton
@@ -69,7 +70,9 @@ export default function ExperienceCard({
 						overflow: 'hidden',
 						transition: '400ms',
 					}}>
-					<p ref={ref} style={{margin: 0}}>{description}</p>
+					<div ref={ref}>
+						<p style={{margin: 0}}>{description}</p>
+					</div>
 				</div>
 			</div>
 		</div>

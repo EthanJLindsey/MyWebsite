@@ -15,9 +15,8 @@ import { Flex, Icon } from "@aws-amplify/ui-react";
 export default function Logo(props) {
   const { overrides: overridesProp, ...rest } = props;
   const variants = [
-    { variantValues: { color: "neutral" }, overrides: { Union: {}, Logo: {} } },
+    { overrides: { Union: {}, Logo: {} }, variantValues: { color: "neutral" } },
     {
-      variantValues: { color: "brand" },
       overrides: {
         Union: {
           paths: [
@@ -35,6 +34,7 @@ export default function Logo(props) {
         },
         Logo: {},
       },
+      variantValues: { color: "brand" },
     },
   ];
   const overrides = mergeVariantsAndOverrides(
