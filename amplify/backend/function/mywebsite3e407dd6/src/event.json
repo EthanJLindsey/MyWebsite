@@ -1,5 +1,46 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "Records": [
+    {
+      "eventID": "c2f26fc80abcefa498894cce9d468c0a",
+      "eventName": "INSERT",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "us-east-2",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1692319188,
+        "Keys": {
+          "id": {
+            "S": "38855c50-6f00-4c57-8822-87813fc8de6c"
+          }
+        },
+        "NewImage": {
+          "createdAt": {
+            "S": "2023-08-18T00:39:48.797Z"
+          },
+          "_lastChangedAt": {
+            "N": "1692319188821"
+          },
+          "__typename": {
+            "S": "Message"
+          },
+          "id": {
+            "S": "38855c50-6f00-4c57-8822-87813fc8de6c"
+          },
+          "_version": {
+            "N": "1"
+          },
+          "content": {
+            "S": "this message is august 17"
+          },
+          "updatedAt": {
+            "S": "2023-08-18T00:39:48.797Z"
+          }
+        },
+        "SequenceNumber": "168136500000000003955966559",
+        "SizeBytes": 223,
+        "StreamViewType": "NEW_AND_OLD_IMAGES"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:us-east-2:882932835689:table/Message-wrrus25iq5aktlop3rpu2jya54-staging/stream/2023-07-13T17:08:18.285"
+    }
+  ]
 }
