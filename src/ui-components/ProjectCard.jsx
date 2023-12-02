@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { getOverrideProps } from "./utils";
 import { Badge, Flex, Heading, Text } from "@aws-amplify/ui-react";
 export default function ProjectCard(props) {
   const { project, overrides, ...rest } = props;
