@@ -11,6 +11,7 @@ export const onCreateMessage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -24,6 +25,7 @@ export const onUpdateMessage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -37,6 +39,7 @@ export const onDeleteMessage = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;

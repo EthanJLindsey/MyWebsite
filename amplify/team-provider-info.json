@@ -15,7 +15,7 @@
       "function": {
         "mywebsite3e407dd6": {
           "deploymentBucketName": "amplify-amplify577116f327324-staging-220959-deployment",
-          "s3Key": "amplify-builds/mywebsite3e407dd6-536e4c33384731717745-build.zip"
+          "s3Key": "amplify-builds/mywebsite3e407dd6-736c645a43304341414b-build.zip"
         }
       },
       "api": {
